@@ -51,7 +51,23 @@ body.demos .service-widget {
 body.demos .container-fluid {
     max-width: 1080px
 }
-
+.noLogin{
+    width: 100%;
+    text-align: center;
+    background: #fff;
+    color: rgb(255, 19, 50);
+    font-size: 24px;
+    font-weight: 500;
+    top: 150px;
+    padding: 15px 30px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+.main-menu{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 a {
     color: #1f1f1f;
     text-decoration: none !important;
@@ -62,7 +78,6 @@ a {
     -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
 }
-
 h1,
 h2,
 h3,

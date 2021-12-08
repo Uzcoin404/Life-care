@@ -19,6 +19,9 @@
    <link rel="stylesheet" href="css/custom.css?v=<?= time()?>">
    </head>
    <body class="clinic_version">
+      <?if($_GET['noLogin']):?>
+      <h2 class="noLogin">Faqat adminlargina Bu sahifaga kira oladi Kirish uchun <a href="./?route=admin">Manzil</a></h2>
+      <?endif;?>
       <div id="preloader">
          <img class="preloader" src="images/loaders/heart-loading2.gif" alt="">
       </div>
@@ -49,8 +52,7 @@
                <nav class="main-menu">
                   <div class="navbar-header">
                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i class="fa fa-bars" aria-hidden="true"></i></button>
-                  </div>
-				  
+                  </div> 
                   <div id="navbar" class="navbar-collapse collapse">
                      <ul class="nav navbar-nav">
                         <li><a class="active" href="#home">Dashboard</a></li>
@@ -58,10 +60,13 @@
                         <li><a data-scroll href="#service">Servislar</a></li>
                         <li><a data-scroll href="#doctors">Shifokorlar</a></li>
                         <li><a data-scroll href="#price">Narx</a></li>
-						<li><a data-scroll href="#testimonials">Guvohlar</a></li>
+						      <li><a data-scroll href="#testimonials">Guvohlar</a></li>
                         <li><a data-scroll href="#getintouch">Biz bilan bo'g'lanish</a></li>
                      </ul>
                   </div>
+                  <ul class="nav navbar-nav">
+                     <li><a data-scroll href="./?route=admin">Admin</a></li>
+                  </ul>
                </nav>
             </div>
          </div>
@@ -576,7 +581,7 @@
             <div class="row">
                <div class="col-md-8">
                   <div class="footer-text">
-                     <a href="./?route=admin">Admin</a>
+                     <a href="#">Owner</a>
                   </div>
                </div>
                <div class="col-md-4">

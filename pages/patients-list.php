@@ -8,9 +8,9 @@
                 <div class="patient_main">
                     <div class="patient_header">
                         <h2 class="patient_title">Bemorlar Ro'yhati</h2>
-                        <form action="" class="search_form">
+                        <form action="../components/search.php" method="POST" class="search_form">
                             <div class="search_input">
-                                <input class="search" type="search" name="search" placeholder="Bemorlar ichidan izlash...">
+                                <input class="search" type="search" name="search" placeholder="Passport seriya orqali izlang...">
                                 <span class="search_icon"><i class="fas fa-search"></i></span>
                                 <span class="search_cancel"><i class="fas fa-times"></i></span>
                             </div>
@@ -45,7 +45,7 @@
                                     <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['age']?></a></td>
                                     <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['passport']?></a></td>
                                     <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['number']?></a></td>
-                                    <td class="table_btn edit_btn"><a href="#"><i class="fas fa-edit"></i></a></td>
+                                    <td class="table_btn edit_btn"><a href="../?route=add-patient&id=<?= $patients[$i]['id']?>"><i class="fas fa-edit"></i></a></td>
                                     <td class="table_btn delete_btn"><a href="../?route=dashboard&page=bemor-royxat&del=<?= $patients[$i]['id']?>"><i class="fas fa-trash"></i></a></td>
                                 </tr>
                             <?endfor;?>

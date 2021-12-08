@@ -16,6 +16,8 @@ function adminLogin($login, $pass){
 
     if ($user['login'] == $login && $user['password'] == $pass) {
         $_SESSION['login'] = $user['login'];
+        $_SESSION['phone'] = $user['phone'];
+        $_SESSION['photo'] = $user['photo'];
         return $login;
     } else {
         return false;
@@ -40,12 +42,15 @@ function getPatients(){
     $patients = $driver->fetchAll(PDO::FETCH_ASSOC);
     return $patients;
 }
-function getAdmin(){
+function getAdmin($login){
     $pdo = pdo();
-    $query = "SELECT * FROM admin";
+    $query = "SELECT * FROM admin WHERE login=(?)";
     $driver = $pdo->prepare($query);
-    $result = $driver->execute();
-    $admin = $driver->fetchAll(PDO::FETCH_ASSOC);
+    $result = $driver->execute([$login]);
+    $admin = $driver->fetch(PDO::FETCH_ASSOC);
+    if ($driver->errorInfo()[0] != '00000') {
+        var_dump($driver->errorInfo());
+    }
     return $admin;
 }
 function getId($id){
@@ -59,9 +64,30 @@ function getId($id){
     }
     return $patients;
 }
+function findPatient($passport){
+    $pdo = pdo();
+    $query = "SELECT * FROM patients WHERE passport=(?)";
+    $driver = $pdo->prepare($query);
+    $result = $driver->execute([$passport]);
+    $patients = $driver->fetch(PDO::FETCH_ASSOC);
+    if ($driver->errorInfo()[0] != '00000') {
+        var_dump($driver->errorInfo());
+    }
+    return $patients;
+}
 function deletePatient($id){
     $pdo = pdo();
     $query = "DELETE FROM patients WHERE id = ?";
+    $driver = $pdo->prepare($query);
+    $result = $driver->execute([$id]);
+    if ($driver->errorInfo()[0] != '00000') {
+        var_dump($driver->errorInfo());
+    }
+    return $result;
+}
+function patientEdit($id, $name, $surname, $patronymic, $sicktype, $age, $passport, $photo, $arrivaltime, $gonetime, $number){
+    $pdo = pdo();
+    $query = "UPDATE patients SET name='$name',surname='$surname',patronymic='$patronymic',sicktype='$sicktype',age='$age',passport='$passport',photo='$photo',arrivaltime='$arrivaltime',gonetime='$gonetime',number='$number' WHERE id = (?)";
     $driver = $pdo->prepare($query);
     $result = $driver->execute([$id]);
     if ($driver->errorInfo()[0] != '00000') {

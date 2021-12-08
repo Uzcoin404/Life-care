@@ -2,11 +2,10 @@
 include_once('./components/db.php');
 if($_SESSION['login']):
 $patients = getPatients();
-$admin = getAdmin();
+$admin = getAdmin($_SESSION['login']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,9 +27,9 @@ $admin = getAdmin();
                 <li class="nav_link"><i id="nav_icon" class="fas fa-user-md"></i><a class="nav_link_a" href="../?route=add-patient">Bemor qo'shish</a></li>
                 <li class="nav_link"><i id="nav_icon" class="far fa-question-circle"></i><a class="nav_link_a" href="#">Yordam</a></li>
             </ul>
-            <a href="#" class="profile">
+            <a href="./?route=dashboard&page=admin-profile" class="profile">
                 <div class="profile_content">
-                    <span class="profile_img"><i class="fas fa-user"></i></span>
+                    <img src="<?= $admin['photo']?>" alt="" class="profile_img">
                     <h5 class="profile_name"><?= $_SESSION['login']?></h5>
                 </div>
                 <span class="sign_out"><i class="fas fa-sign-out-alt"></i></span>
@@ -44,6 +43,8 @@ $admin = getAdmin();
                 include_once('cabinet.php');
             } else if ($_GET['page'] == "bemor-royxat") {
                 include_once('patients-list.php');
+            } else if ($_GET['page'] == "admin-profile") {
+                include_once('profile-info.php');
             }
             ?>
         </main>
@@ -51,5 +52,5 @@ $admin = getAdmin();
     <script src="../js/dashboard.js?v=<?= time() ?>"></script>
 </body>
 </html>
-<? else: header('Location: ./?route=main');
+<? else: header('Location: ./?route=main&noLogin=1');
 endif;?>

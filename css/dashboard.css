@@ -107,6 +107,7 @@
 .profile_img{
 	width: 40px;
 	height: 40px;
+	object-fit: cover;
 	font-size: 25px;
 	margin-right: 5px;
 	border: 1px solid #fff;
@@ -125,7 +126,6 @@
 	font-size: 20px;
 }
 main {
-	padding: 15px 10px;
 	width: 80%;
 	z-index: 999;
 }
@@ -171,6 +171,9 @@ main {
 	width: 100%;
 }
 /* Bemorlar ro'yxati */
+.patient_main{
+	padding-right: 15px;
+}
 .patient_header {
 	width: 100%;
 	display: flex;
@@ -434,4 +437,70 @@ tbody tr:nth-of-type(2n + 2){
 }
 .container .skills:nth-child(3) .percent .progress{
     background: linear-gradient(45deg, #33ff00, #3bc0ff);
+}
+/* Profile info */
+.profile-info{
+    background: url('../images/techbackgroundblue.png')no-repeat center / cover;
+	min-height: 100vh;
+}
+.info_blogs{
+	width: 100%;
+    display: flex;
+	flex-direction: column;
+	padding: 15px;
+}
+.info_left_blog
+{
+    border-radius: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+	display: flex;
+	justify-content: space-between;
+}
+.text_left-blog{
+	margin-right: 15px;
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 15px;
+    border-radius: 30px;    
+}
+.img_left-blog{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-radius: 30px;
+    background-image: linear-gradient(135deg, #EEAD92 10%, #6018DC 100%);
+}
+.admin_profile-txt{
+    text-align: center;
+	padding: 10px 0;
+}
+.admin_profile-img{
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    margin-top: 20px;
+	width: 550px;
+	object-fit: cover;
+}
+.admin_user{
+    border-bottom: 1px solid rgb(62, 8, 161);
+	display: flex;
+	padding: 10px 0;
+}
+.admin_user h2, .admin_password h2{
+	padding-right: 10px;
+}
+.admin_password{
+	border-top: 1px solid rgb(136, 7, 241);
+	padding: 10px 0;
+    display: flex;
+}
+.left_img{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    margin: 15px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    height: 100%;
 }
