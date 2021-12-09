@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 06, 2021 at 12:00 PM
+-- Generation Time: Dec 09, 2021 at 06:14 PM
 -- Server version: 10.3.13-MariaDB-log
 -- PHP Version: 7.1.32
 
@@ -32,15 +32,43 @@ CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `login` varchar(60) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `phone-number` varchar(60) NOT NULL
+  `phone` varchar(60) NOT NULL,
+  `photo` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `login`, `password`, `phone-number`) VALUES
-(1, 'test', 'test123', '+998902161577');
+INSERT INTO `admin` (`id`, `login`, `password`, `phone`, `photo`) VALUES
+(1, 'test', 'test123', '+998906225022', '../images/doctor_01.jpg'),
+(2, 'Uzcoin', 'Uzcoin', 'Uzcoin', '../images/rengen/.png'),
+(5, '345345', '5345345', '998906225022', '../images/avatar/345345.png'),
+(10, 'dasdasd', 'asd', '35345', '../images/avatar/no-photo.jpg'),
+(11, 'asdasda', 'dasdasd', '998992564585', '../images/avatar/no-photo.jpg'),
+(13, 'aaa', 'AAA', '123', '../images/avatar/no-photo.jpg'),
+(20, '4477', 'dfgdf', '4477', '../images/avatar/4477.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `owner`
+--
+
+CREATE TABLE `owner` (
+  `id` int(11) NOT NULL,
+  `login` varchar(60) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `phone` varchar(60) NOT NULL,
+  `photo` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `owner`
+--
+
+INSERT INTO `owner` (`id`, `login`, `password`, `phone`, `photo`) VALUES
+(1, 'test', 'test', '+998906225022', '../images/doctor_02.jpg');
 
 -- --------------------------------------------------------
 
@@ -54,7 +82,7 @@ CREATE TABLE `patients` (
   `surname` varchar(60) NOT NULL,
   `patronymic` varchar(60) NOT NULL,
   `sicktype` varchar(60) NOT NULL,
-  `age` int(11) NOT NULL,
+  `age` int(200) NOT NULL,
   `passport` varchar(60) NOT NULL,
   `photo` varchar(200) NOT NULL,
   `arrivaltime` varchar(60) NOT NULL,
@@ -67,13 +95,11 @@ CREATE TABLE `patients` (
 --
 
 INSERT INTO `patients` (`id`, `name`, `surname`, `patronymic`, `sicktype`, `age`, `passport`, `photo`, `arrivaltime`, `gonetime`, `number`) VALUES
-(1, 'test', '1-foydalanuvchi', 'test', 'grip', 99, 'AAdsdsadas', '', 'sdfdsf', 'sdfsdf', '9844694545'),
-(2, 'gdfgdf', 'gdfgdf', 'gdfgdf', 'dfgdfgg', 65654, 'ghfhgfh', '../img/avatar/noneAvatar.svg', '2021-12-11', '2021-12-09', '5345345'),
-(3, 'gdfgdf', 'gdfgdf', 'gdfgdf', 'dfgdfgg', 65654, 'ghfhgfh', './images/avatar/Rasm-mavjud-emas', '2021-12-11', '2021-12-09', '5345345'),
-(4, 'werwe', 'werw ', 'asdasd', 'asdasd', 34324, 'sdfsdfs', './images/avatar/Rasm-mavjud-emas', '2021-12-02', '2021-12-10', '43534534543'),
-(5, 'werwe', 'werw ', 'asdasd', 'asdasd', 34324, 'sdfsdfs', './images/avatar/Rasm-mavjud-emas', '2021-12-02', '2021-12-10', '43534534543'),
-(6, 'fgdfgdf', 'fdgdfgdf', 'dfgdf', 'gdfgdfg', 324324, 'efdsfsdfs', './images/avatar/fgdfgdf.png', '2021-12-17', '2021-12-02', '534534'),
-(7, 'fgdfgdf', 'fdgdfgdf', 'dfgdf', 'gdfgdfg', 324324, 'efdsfsdfs', '../images/avatar/fgdfgdf.png', '2021-12-17', '2021-12-02', '534534');
+(8, 'Siz ko\'rib', 'turgan', 'ro\'yxat', 'databazadan', 100, 'olib kelingan', '../images/avatar/Rasm-mavjud-emas', '2021-12-09', '2021-12-09', '999999'),
+(9, 'Suyunbek', 'Saydazimov', 'gfh', 'gfhgf', 66, 'fghfghgf', '../images/rengen/fghfghgf.png', '2021-12-02', '2021-12-04', '54564565'),
+(10, 'test', 'tester', 'testing', 'test', 3, 'tester', '../images/rengen/tester.jpg', '2021-12-04', '2021-12-18', '997854'),
+(11, 'vxvc', 'xvcxvcxv', 'cxvcxv', 'xcvcxv', 56546, 'tester', '../images/rengen/tester.png', '2021-12-09', '2021-12-10', '56565'),
+(12, 'gfdfgdfgds', 'fgdfgdfg', 'fdgdfgd', 'dfgdfgdfg', 54543, '777', '../images/rengen/777.png', '2021-12-11', '2021-12-11', '6546546');
 
 --
 -- Indexes for dumped tables
@@ -83,6 +109,13 @@ INSERT INTO `patients` (`id`, `name`, `surname`, `patronymic`, `sicktype`, `age`
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `login` (`login`);
+
+--
+-- Indexes for table `owner`
+--
+ALTER TABLE `owner`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `login` (`login`);
 
@@ -100,13 +133,19 @@ ALTER TABLE `patients`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `owner`
+--
+ALTER TABLE `owner`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -581,7 +581,7 @@
             <div class="row">
                <div class="col-md-8">
                   <div class="footer-text">
-                     <a href="#">Owner</a>
+                     <a href="./?route=admin&owner=1">Owner</a>
                   </div>
                </div>
                <div class="col-md-4">

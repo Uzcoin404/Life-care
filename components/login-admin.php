@@ -1,6 +1,6 @@
 <?
 ob_start();
-include('./db.php');
+include('db.php');
 $login = $_POST['login'];
 $password = $_POST['password'];
 $admin = adminLogin($login, $password);

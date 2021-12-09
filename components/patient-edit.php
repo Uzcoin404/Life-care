@@ -1,6 +1,7 @@
 <?
     ob_start();
     include_once('db.php');
+    if($_SESSION['login'] || $_SESSION['owner-login']):
     $id = $_POST['id'];
     $oldPhoto = getId($id)['photo'];
     $name = $_POST['name'];
@@ -12,14 +13,20 @@
     $arrivaltime = $_POST['arrivaltime'];
     $gonetime = $_POST['gonetime'];
     $number = $_POST['number'];
+    $noDelete = false;
     $ext = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
     if ($ext) {
         $imgPath = "../images/rengen/$passport.$ext";
     } else{
-        $imgPath = "../images/rengen/no-photo.jpg";
+        if ($oldPhoto == "../images/rengen/no-photo.jpg") {
+            $imgPath = "../images/rengen/no-photo.jpg";
+        } else{
+            $imgPath = $oldPhoto;
+            $noDelete = true;
+        }
     }
     if ($oldPhoto != "../images/rengen/no-photo.jpg") {
-        if (file_exists($oldPhoto)) {
+        if (file_exists($oldPhoto) && !$noDelete) {
             unlink($oldPhoto);
         } else {
             echo "Bunday fayl mavjud emas";
@@ -34,5 +41,6 @@
         move_uploaded_file($_FILES['photo']['tmp_name'], $imgPath);
         // header("location: ../?route=patient-info&id=$id");
     }
+    endif;
     ob_end_flush();
 ?>

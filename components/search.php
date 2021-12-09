@@ -1,6 +1,7 @@
 <?
 ob_start();
 include_once('./db.php');
+if($_SESSION['login'] || $_SESSION['owner-login']):
 $search = $_POST['search'];
 $id = findPatient($search)['id'];
 if ($id): header('Location: ../?route=patient-info&id='. $id);
@@ -22,6 +23,7 @@ else:
         }
     </style>
 <?
-ob_end_flush();
 endif;
+endif;
+ob_end_flush();
 ?>

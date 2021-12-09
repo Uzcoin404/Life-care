@@ -1,6 +1,6 @@
 <?
 include_once('./components/db.php');
-if($_SESSION['login']):
+if($_SESSION['login'] || $_SESSION['owner-login']):
 $id = $_GET['id'];
 $patient = getId($id);
 ?>
@@ -121,7 +121,7 @@ $patient = getId($id);
                     </div>
                     <p class="rule_text">Kiritilishi shart bo'lgan joylar * bilan belgilangan!</p>
                 </div>
-                <button type="submit" class="btn patient_btn btn-light btn-radius btn-brd grd1 effect-1">Tasdiqlash</button>
+                <button type="submit" class="btn patient_btn btn-light btn-radius btn-brd grd1 effect-1"><?= $id ? "Saqlash" : 'Tasdiqlash' ?></button>
             </form>
         </div>
         <div class="patient_panel">

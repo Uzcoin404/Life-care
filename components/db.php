@@ -1,5 +1,6 @@
 <?
 session_start();
+if($_SESSION['login'] || $_SESSION['owner-login']):
  function pdo() {
     $dbname = 'hospital-db';
     $dbuser = 'root';
@@ -18,7 +19,23 @@ function adminLogin($login, $pass){
         $_SESSION['login'] = $user['login'];
         $_SESSION['phone'] = $user['phone'];
         $_SESSION['photo'] = $user['photo'];
-        return $login;
+        return true;
+    } else {
+        return false;
+    }
+}
+function ownerLogin($login, $pass){
+    $pdo = pdo();
+    $query = "SELECT * FROM owner WHERE login = ?";
+    $driver = $pdo->prepare($query);
+    $result = $driver->execute([$login]);
+    $user = $driver->fetch(PDO::FETCH_ASSOC);
+
+    if ($user['login'] == $login && $user['password'] == $pass) {
+        $_SESSION['owner-login'] = $user['login'];
+        $_SESSION['owner-phone'] = $user['phone'];
+        $_SESSION['owner-photo'] = $user['photo'];
+        return true;
     } else {
         return false;
     }
@@ -34,6 +51,17 @@ function setPatients($name, $surname, $patronymic, $sicktype, $age, $passport, $
     }
     return $result;
 }
+function setAdmin($login, $password, $phone, $photo){
+    // $password = password_hash($password , PASSWORD_DEFAULT);
+    $pdo = pdo();
+    $query = "INSERT INTO admin (login, password, phone, photo) VALUES (?,?,?,?)";
+    $driver = $pdo->prepare($query);
+    $result = $driver->execute([$login, $password, $phone, $photo]);
+    if ($driver->errorInfo()[0] != '00000') {
+        var_dump($driver->errorInfo());
+    }
+    return $result;
+}
 function getPatients(){
     $pdo = pdo();
     $query = "SELECT * FROM patients";
@@ -42,16 +70,35 @@ function getPatients(){
     $patients = $driver->fetchAll(PDO::FETCH_ASSOC);
     return $patients;
 }
-function getAdmin($login){
+function getAdmins(){
     $pdo = pdo();
-    $query = "SELECT * FROM admin WHERE login=(?)";
+    $query = "SELECT * FROM admin";
     $driver = $pdo->prepare($query);
-    $result = $driver->execute([$login]);
+    $result = $driver->execute();
+    $admins = $driver->fetchAll(PDO::FETCH_ASSOC);
+    return $admins;
+}
+function getAdmin($id){
+    $pdo = pdo();
+    $query = "SELECT * FROM admin WHERE id=(?)";
+    $driver = $pdo->prepare($query);
+    $result = $driver->execute([$id]);
     $admin = $driver->fetch(PDO::FETCH_ASSOC);
     if ($driver->errorInfo()[0] != '00000') {
         var_dump($driver->errorInfo());
     }
     return $admin;
+}
+function getOwner($login){
+    $pdo = pdo();
+    $query = "SELECT * FROM owner WHERE login=(?)";
+    $driver = $pdo->prepare($query);
+    $result = $driver->execute([$login]);
+    $owner = $driver->fetch(PDO::FETCH_ASSOC);
+    if ($driver->errorInfo()[0] != '00000') {
+        var_dump($driver->errorInfo());
+    }
+    return $owner;
 }
 function getId($id){
     $pdo = pdo();
@@ -85,6 +132,16 @@ function deletePatient($id){
     }
     return $result;
 }
+function deleteAdmin($id){
+    $pdo = pdo();
+    $query = "DELETE FROM admin WHERE id = ?";
+    $driver = $pdo->prepare($query);
+    $result = $driver->execute([$id]);
+    if ($driver->errorInfo()[0] != '00000') {
+        var_dump($driver->errorInfo());
+    }
+    return $result;
+}
 function patientEdit($id, $name, $surname, $patronymic, $sicktype, $age, $passport, $photo, $arrivaltime, $gonetime, $number){
     $pdo = pdo();
     $query = "UPDATE patients SET name='$name',surname='$surname',patronymic='$patronymic',sicktype='$sicktype',age='$age',passport='$passport',photo='$photo',arrivaltime='$arrivaltime',gonetime='$gonetime',number='$number' WHERE id = (?)";
@@ -95,4 +152,15 @@ function patientEdit($id, $name, $surname, $patronymic, $sicktype, $age, $passpo
     }
     return $result;
 }
+function adminEdit($id, $login, $password, $phone, $photo){
+    $pdo = pdo();
+    $query = "UPDATE admin SET login='$login',password='$password',phone='$phone',photo='$photo' WHERE id = (?)";
+    $driver = $pdo->prepare($query);
+    $result = $driver->execute([$id]);
+    if ($driver->errorInfo()[0] != '00000') {
+        var_dump($driver->errorInfo());
+    }
+    return $result;
+}
+endif;
 ?>

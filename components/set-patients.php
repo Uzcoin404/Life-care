@@ -1,6 +1,7 @@
 <?
     ob_start();
     include_once('db.php');
+    if($_SESSION['login'] || $_SESSION['owner-login']):
     $name = $_POST['name'];
     $surname = $_POST['surname'];
     $patronymic = $_POST['patronymic'];
@@ -27,5 +28,6 @@
         move_uploaded_file($_FILES['photo']['tmp_name'], $imgPath);
         header("location: ../?route=dashboard&page=bemor-royxat");
     }
+    endif;
     ob_end_flush();
 ?>
