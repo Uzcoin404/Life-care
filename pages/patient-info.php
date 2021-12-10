@@ -37,8 +37,6 @@ $isOwner = $_GET['owner'];?>
                 <div class="info-2">
                     <p>Shifoxonaga kelgan vaqti: <span><?= $patient['arrivaltime']?></span></p>
                     <p>Tuzalgan vaqti: <span><?= $patient['gonetime']?></span></p>
-                    <p>Oilali yoki bo'ydoq<span><?= $patient['name']?></span></p>
-                    <p>Jinsi: <span><?= $patient['name']?></span></p>
                     <p>Telefon raqami: +998 <span><?= $patient['number']?></span></p>
                     <p>Bemorning kasal turi: <span><?= $patient['sicktype']?></span></p>
                 </div>

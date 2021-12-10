@@ -2,6 +2,8 @@
     ob_start();
     include_once('db.php');
     if($_SESSION['login'] || $_SESSION['owner-login']):
+    $patients = getPatients();
+    $checkLogin = false;
     $name = $_POST['name'];
     $surname = $_POST['surname'];
     $patronymic = $_POST['patronymic'];
@@ -19,14 +21,19 @@
     } else {
         $imgPath = "../images/rengen/no-photo.jpg";
     }
-    $isInsert = setPatients($name, $surname, $patronymic, $sicktype, $age, $passport, $imgPath, $arrivaltime, $gonetime, $number);
-    if (!$isInsert) {
+    foreach ($patients as $name => $value) {
+        if ($passport == $value['passport']) {
+            $checkLogin = true;
+            break;
+        }
+    }
+    var_dump($checkLogin);
+    if ($checkLogin) {
         echo "<h1>Nimadir xato qaytadan urinib ko'ring</h1>";
-        // header("location: ../?route=dashboard&page=bemor-royxat");
     } else{
         setPatients($name, $surname, $patronymic, $sicktype, $age, $passport, $imgPath, $arrivaltime, $gonetime, $number);
         move_uploaded_file($_FILES['photo']['tmp_name'], $imgPath);
-        header("location: ../?route=dashboard&page=bemor-royxat");
+        // header("location: ../?route=dashboard&page=bemor-royxat");
     }
     endif;
     ob_end_flush();

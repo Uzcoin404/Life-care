@@ -35,11 +35,10 @@
     $isEdit =  patientEdit($id, $name, $surname, $patronymic, $sicktype, $age, $passport, $imgPath, $arrivaltime, $gonetime, $number);
     if (!$isEdit) {
         echo "<h1>Nimadir xato qaytadan urinib ko'ring</h1>";
-        // header("location: ../?route=patient-info&id=$id");
     } else{
         patientEdit($id, $name, $surname, $patronymic, $sicktype, $age, $passport, $imgPath, $arrivaltime, $gonetime, $number);
         move_uploaded_file($_FILES['photo']['tmp_name'], $imgPath);
-        // header("location: ../?route=patient-info&id=$id");
+        header("location: ../?route=dashboard&page=bemor-royxat");
     }
     endif;
     ob_end_flush();
