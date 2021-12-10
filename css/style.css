@@ -311,17 +311,17 @@ a img.aligncenter {
     background: url('../images/techbackgroundblue.png') no-repeat center / cover;
 }
 .error_indi{
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    background: rgb(255, 41, 25);
-    color: #fff;
-    font-size: 20px;
-    font-weight: 500;
-    text-align: center;
-    padding: 5px 0;
+    position: fixed !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100% !important;
+    background: rgb(255, 41, 25) !important;
+    color: #fff !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+    padding: 5px 0 !important;
 }
 .patient_body{
     width: 65%;

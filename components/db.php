@@ -1,6 +1,5 @@
 <?
 session_start();
-if($_SESSION['login'] || $_SESSION['owner-login']):
  function pdo() {
     $dbname = 'hospital-db';
     $dbuser = 'root';
@@ -162,5 +161,4 @@ function adminEdit($id, $login, $password, $phone, $photo){
     }
     return $result;
 }
-endif;
 ?>
