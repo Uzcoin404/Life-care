@@ -1,6 +1,6 @@
 <?
 include_once('./components/db.php');
-if($_SESSION['login'] || $_SESSION['owner-login']):
+if($_SESSION['owner-login']):
 $id = $_GET['id'];
 $patient = getId($id);
 $admin = getAdmin($id);?>

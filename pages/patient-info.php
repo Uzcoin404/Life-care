@@ -4,7 +4,7 @@ if($_SESSION['login'] || $_SESSION['owner-login']):
 $id = $_GET['id'];
 $patient = getId($id);
 $admin = getAdmin($id);
-$isOwner = $_GET['owner'];?>
+$isOwner = $_SESSION['owner-login'] && $_GET['owner'];?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,17 +42,17 @@ $isOwner = $_GET['owner'];?>
                 </div>
             </div>
             <div clas="info-3"><img class="info-3-img" src="<?= $patient['photo']?>" alt="Rengen"></div>
-            <?else:?>
-                <div class="info">
-                    <div class="info-1">
-                        <p>Admin ID: <span><?= $admin['id']?></span></p>
-                        <p>Admin ismi: <span><?= $admin['login']?></span></p>
-                        <p>Admin Paroli: <span><input class="admin_pass" value="<?= $admin['password']?>" type="password" readonly></span><view onclick="document.querySelector('.admin_pass').type = 'text'"> Ko'rish</view></p>
-                        <p>Admin Telefon raqami: <span><?= $admin['phone']?></span></p>
-                    </div>
+        <?else:?>
+            <div class="info">
+                <div class="info-1">
+                    <p>Admin ID: <span><?= $admin['id']?></span></p>
+                    <p>Admin ismi: <span><?= $admin['login']?></span></p>
+                    <p>Admin Paroli: <span><input class="admin_pass" value="<?= $admin['password']?>" type="password" readonly></span><view onclick="document.querySelector('.admin_pass').type = 'text'"> Ko'rish</view></p>
+                    <p>Admin Telefon raqami: <span><?= $admin['phone']?></span></p>
                 </div>
-                <div clas="info-3"><img class="info-3-img" src="<?= $admin['photo']?>" alt=""></div>
-            <?endif;?>
+            </div>
+            <div clas="info-3"><img class="info-3-img" src="<?= $admin['photo']?>" alt=""></div>
+        <?endif;?>
         </div>
         <li class="li-1"></li>
         <li class="li-2"></li>

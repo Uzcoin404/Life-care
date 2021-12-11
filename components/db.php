@@ -69,6 +69,14 @@ function getPatients(){
     $patients = $driver->fetchAll(PDO::FETCH_ASSOC);
     return $patients;
 }
+function PatientsLimit($begin, $perPage){
+    $pdo = pdo();
+    $query = "SELECT * FROM patients LIMIT $begin,$perPage";
+    $driver = $pdo->prepare($query);
+    $result = $driver->execute();
+    $patients = $driver->fetchAll(PDO::FETCH_ASSOC);
+    return $patients;
+}
 function getAdmins(){
     $pdo = pdo();
     $query = "SELECT * FROM admin";

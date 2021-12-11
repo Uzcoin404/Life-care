@@ -27,13 +27,12 @@
             break;
         }
     }
-    var_dump($checkLogin);
     if ($checkLogin) {
-        echo "<h1>Nimadir xato qaytadan urinib ko'ring</h1>";
+        echo "<h1>Nimadir xato qaytadan urinib ko'ring. Passport band bo'lishi mumkin</h1>";
     } else{
         setPatients($name, $surname, $patronymic, $sicktype, $age, $passport, $imgPath, $arrivaltime, $gonetime, $number);
         move_uploaded_file($_FILES['photo']['tmp_name'], $imgPath);
-        // header("location: ../?route=dashboard&page=bemor-royxat");
+        header("location: ../?route=dashboard&page=bemor-royxat");
     }
     endif;
     ob_end_flush();

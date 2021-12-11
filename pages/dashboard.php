@@ -1,10 +1,10 @@
 <?
 include_once('./components/db.php');
 if($_SESSION['login'] || $_SESSION['owner-login']):
-$patients = getPatients();
 $admins = getAdmins();
 $owner = getOwner($_SESSION['owner-login']);
 $isOwner = $_SESSION['owner-login'];
+$getOwner = $_GET['owner'];
 $isAdminList = $_GET['admin-royxat'];
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ $isAdminList = $_GET['admin-royxat'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard admin</title>
+    <title>Dashboard <?= $isOwner && $getOwner ? "SuperAdmin" : "Admin"?></title>
     <link rel="shortcut icon" href="images/fevicon.ico.png" type="image/x-icon" />
     <link rel="stylesheet" href="../css/fontawesome.css">
     <link rel="stylesheet" href="../css/fonts.css">
@@ -29,18 +29,21 @@ $isAdminList = $_GET['admin-royxat'];
                 <li class="nav_link <?= $_GET['page'] == 'kabinet' || !$_GET['page'] ? 'active' : ''?>"><i id="nav_icon" class="fas fa-stethoscope"></i><a class="nav_link_a" href="./?route=dashboard&page=kabinet">Kabinet</a></li>
                 <li class="nav_link <?= $_GET['page'] == 'bemor' ? 'active' : ''?>"><i id="nav_icon" class="fas fa-user-injured"></i><a class="nav_link_a" href="./?route=dashboard&page=bemor-royxat">Bemorlar ro'yxati</a></li>
                 <li class="nav_link"><i id="nav_icon" class="fas fa-user-md"></i><a class="nav_link_a" href="../?route=add-patient">Bemor qo'shish</a></li>
-            <?if($isOwner):?>
+            <?if($isOwner && $getOwner):?>
                 <li class="nav_link"><a class="nav_link_a" href="../?route=add-admin">Admin tayinlash</a></li>
                 <li class="nav_link"><a class="nav_link_a" href="./?route=dashboard&owner=1&page=bemor-royxat&admin-royxat=1">Adminlar Ro'yxati</a></li>
             <?endif;?>
                 <li class="nav_link"><i id="nav_icon" class="far fa-question-circle"></i><a class="nav_link_a" href="#">Yordam</a></li>
             </ul>
-            <a href="<?= $isOwner ? "./?route=dashboard&page=admin-profile&owner=1" : "./?route=dashboard&page=admin-profile"?>" class="profile">
+            <a href="<?= $isOwner && $getOwner ? "./?route=dashboard&page=admin-profile&owner=1" : "./?route=dashboard&page=admin-profile"?>" class="profile">
+                <h4 class="profile_name"><?= $isOwner && $getOwner ? "SuperAdmin:" : "Admin:"?></h4>
                 <div class="profile_content">
-                    <img src="<?= $isOwner ? $owner['photo'] : $_SESSION['photo']?>" alt="" class="profile_img">
-                    <h5 class="profile_name"><?= $isOwner ? $_SESSION['owner-login'] : $_SESSION['login']?></h5>
+                    <div class="profile_content_item">
+                        <img src="<?= $isOwner && $getOwner ? $_SESSION['owner-photo'] : $_SESSION['photo']?>" alt="" class="profile_img">
+                        <h5 class="profile_name"><?= $isOwner && $getOwner ? $_SESSION['owner-login'] : $_SESSION['login']?></h5>
+                    </div>
+                    <span><a class="sign_out" href="<?= $isOwner && $getOwner ? "../components/login-owner.php" : "../components/login-admin.php"?>"><i class="fas fa-sign-out-alt"></i></a></span>
                 </div>
-                <span class="sign_out"><i class="fas fa-sign-out-alt"></i></span>
             </a>
         </nav>
         <main class="main">

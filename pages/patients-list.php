@@ -1,8 +1,17 @@
                 <?
+                    $isLatest = $_GET['latest'];
+                    $latestPatients = getPatients();
+                    $sizePatients = sizeof($latestPatients);
+                    $perPage = 10;
+                    $listIndex = $_GET['list'];
+                    $pages = ceil($sizePatients / $perPage);
+                    $listIndex ? $list = $listIndex : $list = 1;
+                    $firstList = ($list-1) * $perPage;
+                    $patients = PatientsLimit($firstList, $perPage);
                     $id = $_GET['del'];
                     if ($id) {
-                        $isOwner ? deleteAdmin($id) : deletePatient($id);
-                        if ($isOwner) {
+                        $isOwner && $getOwner ? deleteAdmin($id) : deletePatient($id);
+                        if ($isOwner && $getOwner) {
                             echo "<script>window.location.replace('../?route=dashboard&owner=1&page=bemor-royxat&admin-royxat=1')</script>";
                         } else{
                             echo "<script>window.location.replace('../?route=dashboard&page=bemor-royxat')</script>";
@@ -11,7 +20,7 @@
                 ?>
                 <div class="patient_main">
                     <div class="patient_header">
-                        <h2 class="patient_title"><?= $isAdminList ? "Adminlar Ro'yhati" : "Bemorlar Ro'yhati"?></h2>
+                        <h2 class="patient_title"><?= $isOwner && $getOwner ? "Adminlar Ro'yhati" : "Bemorlar Ro'yhati"?></h2>
                         <form action="../components/search.php" method="POST" class="search_form">
                             <div class="search_input">
                                 <input class="search" type="search" name="search" placeholder="Passport seriya orqali izlang...">
@@ -28,7 +37,15 @@
                         <table class="patient_table">
                             <thead class="thead">
                                 <tr class="patient_list_title">
-                                <?if(!$isAdminList):?>
+                                <?if($isOwner && $getOwner):?>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Ismi</th>
+                                    <th scope="col">Paroli</th>
+                                    <th scope="col">Telefon raqami</th>
+                                    <th scope="col">Rasmi</th>
+                                    <th scope="col" class="controls_title">Tahrirlash</th>
+                                    <th scope="col" class="controls_title">O'chirish</th>
+                                <?else:?>
                                     <th scope="col">ID</th>
                                     <th scope="col">Ismi</th>
                                     <th scope="col">Familyasi</th>
@@ -38,33 +55,11 @@
                                     <th scope="col">Telefon raqami</th>
                                     <th scope="col" class="controls_title">Tahrirlash</th>
                                     <th scope="col" class="controls_title">O'chirish</th>
-                                <?else:?>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Ismi</th>
-                                    <th scope="col">Paroli</th>
-                                    <th scope="col">Telefon raqami</th>
-                                    <th scope="col">Rasmi</th>
-                                    <th scope="col" class="controls_title">Tahrirlash</th>
-                                    <th scope="col" class="controls_title">O'chirish</th>
                                 <?endif;?>
                                 </tr>
                             </thead>
                             <tbody class="tbody">
-                            <?if(!$isAdminList):
-                                for ($i=0; $i < count($patients); $i++):?>
-                                    <tr class="patient_list">
-                                        <th scope="row"><?= $patients[$i]['id']?></th>
-                                        <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['name']?></a></td>
-                                        <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['surname']?></a></td>
-                                        <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['sicktype']?></a></td>
-                                        <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['age']?></a></td>
-                                        <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['passport']?></a></td>
-                                        <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['number']?></a></td>
-                                        <td class="table_btn edit_btn"><a href="../?route=add-patient&id=<?= $patients[$i]['id']?>"><i class="fas fa-edit"></i></a></td>
-                                        <td class="table_btn delete_btn"><a href="../?route=dashboard&page=bemor-royxat&admin-royxat=1&del=<?= $patients[$i]['id']?>"><i class="fas fa-trash"></i></a></td>
-                                    </tr>
-                                <?endfor;
-                            else:
+                            <?if($isOwner && $getOwner):
                                 for ($i=0; $i < count($admins); $i++):?>
                                 <tr class="patient_list">
                                         <th scope="row"><?= $admins[$i]['id']?></th>
@@ -77,8 +72,59 @@
                                     </tr>
                                 </tbody>
                                 <?endfor;
+                            else:
+                                if(!$isLatest):
+                                    for ($i=0; $i < count($patients); $i++):?>
+                                        <tr class="patient_list">
+                                            <th scope="row"><?= $patients[$i]['id']?></th>
+                                            <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['name']?></a></td>
+                                            <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['surname']?></a></td>
+                                            <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['sicktype']?></a></td>
+                                            <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['age']?></a></td>
+                                            <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['passport']?></a></td>
+                                            <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['number']?></a></td>
+                                            <td class="table_btn edit_btn"><a href="../?route=add-patient&id=<?= $patients[$i]['id']?>"><i class="fas fa-edit"></i></a></td>
+                                            <td class="table_btn delete_btn"><a href="../?route=dashboard&page=bemor-royxat&admin-royxat=1&del=<?= $patients[$i]['id']?>"><i class="fas fa-trash"></i></a></td>
+                                        </tr>
+                                    <?endfor;
+                                else:
+                                    for ($i=$sizePatients-1; $i >= $sizePatients-15; $i--):?>
+                                        <tr class="patient_list">
+                                            <th scope="row"><?= $latestPatients[$i]['id']?></th>
+                                            <td><a href="../?route=patient-info&id=<?= $latestPatients[$i]['id']?>"><?= $latestPatients[$i]['name']?></a></td>
+                                            <td><a href="../?route=patient-info&id=<?= $latestPatients[$i]['id']?>"><?= $latestPatients[$i]['surname']?></a></td>
+                                            <td><a href="../?route=patient-info&id=<?= $latestPatients[$i]['id']?>"><?= $latestPatients[$i]['sicktype']?></a></td>
+                                            <td><a href="../?route=patient-info&id=<?= $latestPatients[$i]['id']?>"><?= $latestPatients[$i]['age']?></a></td>
+                                            <td><a href="../?route=patient-info&id=<?= $latestPatients[$i]['id']?>"><?= $latestPatients[$i]['passport']?></a></td>
+                                            <td><a href="../?route=patient-info&id=<?= $latestPatients[$i]['id']?>"><?= $latestPatients[$i]['number']?></a></td>
+                                            <td class="table_btn edit_btn"><a href="../?route=add-patient&id=<?= $latestPatients[$i]['id']?>"><i class="fas fa-edit"></i></a></td>
+                                            <td class="table_btn delete_btn"><a href="../?route=dashboard&page=bemor-royxat&admin-royxat=1&del=<?= $latestPatients[$i]['id']?>"><i class="fas fa-trash"></i></a></td>
+                                        </tr>
+                                    <?endfor;
+                                endif;
                             endif;?>
                         </table>
+                    <?if (!$isOwner && !$getOwner && $listIndex):?>
+                        <div class="paginator">
+                            <div class="pagination">
+                                <ul>
+                                <?if($listIndex-1 != 0):?>
+                                    <button><a href="../?route=dashboard&page=bemor-royxat&list=<?= $listIndex-1?>" class="btn prev"><i class="fas fa-angle-left"></i> Oldingi</a></button>
+                                <?endif;?>
+                                <?for ($list=1; $list <= $pages; $list++):?>
+                                    <a href="../?route=dashboard&page=bemor-royxat&list=<?= $list?>" class="numb <?= $listIndex == $list ? "active" : ""?>"><?= $list?></a>
+                                <?endfor;?>
+                                <?if($listIndex+1 <= $pages):?>
+                                    <button><a href="../?route=dashboard&page=bemor-royxat&list=<?= $listIndex+1?>" class="btn next">Keyingi <i class="fas fa-angle-right"></i></a></button>
+                                <?endif;?>
+                                </ul>
+                            </div>
+                        </div>
+                    <?endif;?>
+                    </div>
+                    <div class="pagination_controls">
+                        <a href="../?route=dashboard&page=bemor-royxat&list=1">Hammasini ko'rsatish</a>
+                        <a href="../?route=dashboard&page=bemor-royxat&latest=true">Eng so'ngilarini ko'rsatish</a>
                     </div>
                 </div>
                 <script>
@@ -87,6 +133,7 @@
                         table = document.querySelector('.patient_table'),
                         tr = document.querySelectorAll('tr'),
                         deleteBtn = document.querySelectorAll('.delete_btn'),
+                        editBtn = document.querySelectorAll('.edit_btn'),
                         deleteSubmit = document.querySelector('.delete_submit'),
                         searchIcon = document.querySelector('.search_icon'),
                         searchForm = document.querySelector('.search_form'),
@@ -133,9 +180,9 @@
                             }
                         }
                     });
-                    // deleteSubmit.querySelector('a').addEventListener('click', function(){
-                    //     setTimeout(() => {
-                    //         location.reload();
-                    //     }, 500);
-                    // });
+                    for (let i = 0; i < editBtn.length; i++) {                        
+                        editBtn[i].addEventListener('click', function(){
+                            editBtn[i].querySelector('a').click();
+                        });
+                    }
                 </script>

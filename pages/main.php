@@ -494,41 +494,7 @@
             </div>
          </div>
          <div class="contact-section">
-            <div class="form-contant">
-               <form id="ajax-contact" action="" method="post">
-                  <div class="row">
-                     <div class="col-md-6">
-                        <div class="form-group in_name">
-                           <input type="text" class="form-control" placeholder="Name" required="required">
-                        </div>
-                     </div>
-                     <div class="col-md-6">
-                        <div class="form-group in_email">
-                           <input type="email" class="form-control" placeholder="E-mail" required="required">
-                        </div>
-                     </div>
-                     <div class="col-md-6">
-                        <div class="form-group in_email">
-                           <input type="tel" class="form-control" id="phone" placeholder="Phone" required="required">
-                        </div>
-                     </div>
-                     <div class="col-md-6">
-                        <div class="form-group in_email">
-                           <input type="text" class="form-control" id="subject" placeholder="Subject" required="required">
-                        </div>
-                     </div>
-                     <div class="col-md-12">
-                        <div class="form-group in_message"> 
-                           <textarea class="form-control" id="message" rows="5" placeholder="Message" required="required"></textarea>
-                        </div>
-                        <div class="actions">
-                           <input type="submit" value="Send Message" name="submit" id="submitButton" class="btn small" title="Submit Your Message!">
-                        </div>
-                     </div>
-                  </div>
-               </form>
-            </div>
-            <div id="googleMap" style="width:60%;"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3028.1567495793065!2d72.49878311611144!3d40.62642499043895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bcf76c4feecb55%3A0x9e29736e00b785d!2sBuloqboshi%2C%20Nayman%2C%20O%60zbekiston!5e0!3m2!1suz!2skg!4v1638376872010!5m2!1suz!2skg" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
+            <div id="googleMap" style="width:100%; min-height:520px"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3028.1567495793065!2d72.49878311611144!3d40.62642499043895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bcf76c4feecb55%3A0x9e29736e00b785d!2sBuloqboshi%2C%20Nayman%2C%20O%60zbekiston!5e0!3m2!1suz!2skg!4v1638376872010!5m2!1suz!2skg" width="100%" height="100%" style="border:0; min-height:520px" allowfullscreen="" loading="lazy"></iframe></div>
          </div>
       </div>
       <footer id="footer" class="footer-area wow fadeIn">

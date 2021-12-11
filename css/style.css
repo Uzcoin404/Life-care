@@ -2138,14 +2138,6 @@ select.mobile-device {
 #contact {
     background: url(images/bg.png) no-repeat center center #fff;
 }
-#googleMap{
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    justify-content: flex-end;
-}
-
 
 /*------------------------------------------------------------------
     FOOTER

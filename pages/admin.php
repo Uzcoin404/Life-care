@@ -2,7 +2,6 @@
 include_once('./components/db.php');
 if($_SESSION['login'] && $_SESSION['owner-login']){
     header('Location: ./?route=dashboard&page=kabinetowner=1');
-    
 }
 ?>
 <!DOCTYPE html>
