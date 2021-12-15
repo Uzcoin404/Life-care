@@ -62,7 +62,7 @@
                             <?if($isOwner && $getOwner):
                                 for ($i=0; $i < count($admins); $i++):?>
                                 <tr class="patient_list">
-                                        <th scope="row"><?= $admins[$i]['id']?></th>
+                                        <th scope="row"><?= $i+1?></th>
                                         <td><a href="../?route=patient-info&owner=true&id=<?= $admins[$i]['id']?>"><?= $admins[$i]['login']?></a></td>
                                         <td><a href="../?route=patient-info&owner=true&id=<?= $admins[$i]['id']?>">********</a></td>
                                         <td><a href="../?route=patient-info&owner=true&id=<?= $admins[$i]['id']?>"><?= $admins[$i]['phone']?></a></td>
@@ -76,7 +76,7 @@
                                 if(!$isLatest):
                                     for ($i=0; $i < count($patients); $i++):?>
                                         <tr class="patient_list">
-                                            <th scope="row"><?= $patients[$i]['id']?></th>
+                                            <th scope="row"><?= $i+1?></th>
                                             <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['name']?></a></td>
                                             <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['surname']?></a></td>
                                             <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['sicktype']?></a></td>
@@ -90,7 +90,7 @@
                                 else:
                                     for ($i=$sizePatients-1; $i >= $sizePatients-15; $i--):?>
                                         <tr class="patient_list">
-                                            <th scope="row"><?= $latestPatients[$i]['id']?></th>
+                                            <th scope="row"><?= $i?></th>
                                             <td><a href="../?route=patient-info&id=<?= $latestPatients[$i]['id']?>"><?= $latestPatients[$i]['name']?></a></td>
                                             <td><a href="../?route=patient-info&id=<?= $latestPatients[$i]['id']?>"><?= $latestPatients[$i]['surname']?></a></td>
                                             <td><a href="../?route=patient-info&id=<?= $latestPatients[$i]['id']?>"><?= $latestPatients[$i]['sicktype']?></a></td>
@@ -109,14 +109,14 @@
                     <div class="paginator">
                         <div class="pagination">
                             <ul>
-                            <?if($listIndex-1 != 0):?>
+                            <?if($listIndex-1 != 0 && $list-1 != 0):?>
                                 <button><a href="../?route=dashboard&page=bemor-royxat&list=<?= $listIndex-1?>" class="btn prev"><i class="fas fa-angle-left"></i> Oldingi</a></button>
                             <?endif;?>
                             <?for ($list=1; $list <= $pages; $list++):?>
                                 <a href="../?route=dashboard&page=bemor-royxat&list=<?= $list?>" class="numb <?= $listIndex == $list ? "active" : ""?>"><?= $list?></a>
                             <?endfor;?>
                             <?if($listIndex+1 <= $pages):?>
-                                <button><a href="../?route=dashboard&page=bemor-royxat&list=<?= $listIndex+1?>" class="btn next">Keyingi <i class="fas fa-angle-right"></i></a></button>
+                                <button><a href="../?route=dashboard&page=bemor-royxat&list=<?= $listIndex ? $listIndex+1 : 2?>" class="btn next">Keyingi <i class="fas fa-angle-right"></i></a></button>
                             <?endif;?>
                             </ul>
                         </div>

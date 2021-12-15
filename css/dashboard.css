@@ -45,6 +45,7 @@
   background: linear-gradient(to right, #39b49a 0%, #1d86df 100%);
   color: #fff;
   z-index: 99;
+  overflow-y: auto;
 }
 .logo_img {
   width: 80%;
@@ -668,7 +669,7 @@ tbody tr:nth-of-type(2n + 2) {
 }
 @media (max-width: 900px) {
   nav{
-    transform: translateX(-100%);
+    transform: translateX(-120%);
     transition: all .3s;
   }
   main{
