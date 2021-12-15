@@ -104,28 +104,30 @@
                                 endif;
                             endif;?>
                         </table>
-                    <?if (!$isOwner && !$getOwner && $listIndex):?>
-                        <div class="paginator">
-                            <div class="pagination">
-                                <ul>
-                                <?if($listIndex-1 != 0):?>
-                                    <button><a href="../?route=dashboard&page=bemor-royxat&list=<?= $listIndex-1?>" class="btn prev"><i class="fas fa-angle-left"></i> Oldingi</a></button>
-                                <?endif;?>
-                                <?for ($list=1; $list <= $pages; $list++):?>
-                                    <a href="../?route=dashboard&page=bemor-royxat&list=<?= $list?>" class="numb <?= $listIndex == $list ? "active" : ""?>"><?= $list?></a>
-                                <?endfor;?>
-                                <?if($listIndex+1 <= $pages):?>
-                                    <button><a href="../?route=dashboard&page=bemor-royxat&list=<?= $listIndex+1?>" class="btn next">Keyingi <i class="fas fa-angle-right"></i></a></button>
-                                <?endif;?>
-                                </ul>
-                            </div>
-                        </div>
-                    <?endif;?>
                     </div>
+                <?if (!$getOwner && !$isLatest):?>
+                    <div class="paginator">
+                        <div class="pagination">
+                            <ul>
+                            <?if($listIndex-1 != 0):?>
+                                <button><a href="../?route=dashboard&page=bemor-royxat&list=<?= $listIndex-1?>" class="btn prev"><i class="fas fa-angle-left"></i> Oldingi</a></button>
+                            <?endif;?>
+                            <?for ($list=1; $list <= $pages; $list++):?>
+                                <a href="../?route=dashboard&page=bemor-royxat&list=<?= $list?>" class="numb <?= $listIndex == $list ? "active" : ""?>"><?= $list?></a>
+                            <?endfor;?>
+                            <?if($listIndex+1 <= $pages):?>
+                                <button><a href="../?route=dashboard&page=bemor-royxat&list=<?= $listIndex+1?>" class="btn next">Keyingi <i class="fas fa-angle-right"></i></a></button>
+                            <?endif;?>
+                            </ul>
+                        </div>
+                    </div>
+                <?endif;
+                if(!$getOwner):?>
                     <div class="pagination_controls">
                         <a href="../?route=dashboard&page=bemor-royxat&list=1">Hammasini ko'rsatish</a>
                         <a href="../?route=dashboard&page=bemor-royxat&latest=true">Eng so'ngilarini ko'rsatish</a>
                     </div>
+                <?endif;?>
                 </div>
                 <script>
                     const search = document.querySelector('.search'),

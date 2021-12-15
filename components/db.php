@@ -18,6 +18,9 @@ function adminLogin($login, $pass){
         $_SESSION['login'] = $user['login'];
         $_SESSION['phone'] = $user['phone'];
         $_SESSION['photo'] = $user['photo'];
+        unset($_SESSION['owner-login']);
+        unset($_SESSION['owner-phone']);
+        unset($_SESSION['owner-photo']);
         return true;
     } else {
         return false;
@@ -34,6 +37,9 @@ function ownerLogin($login, $pass){
         $_SESSION['owner-login'] = $user['login'];
         $_SESSION['owner-phone'] = $user['phone'];
         $_SESSION['owner-photo'] = $user['photo'];
+        unset($_SESSION['login']);
+        unset($_SESSION['phone']);
+        unset($_SESSION['photo']);
         return true;
     } else {
         return false;

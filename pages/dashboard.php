@@ -21,6 +21,7 @@ $isAdminList = $_GET['admin-royxat'];
 </head>
 <body>
     <dashboard class="dashboard">
+        <div class="menu"><i class="fas fa-bars"></i></div>
         <nav class="nav">
             <div class="nav_logo">
                 <a href="#"><img src="../images/logo.png" alt="" class="logo_img"></a>
@@ -29,22 +30,22 @@ $isAdminList = $_GET['admin-royxat'];
                 <li class="nav_link <?= $_GET['page'] == 'kabinet' || !$_GET['page'] ? 'active' : ''?>"><i id="nav_icon" class="fas fa-stethoscope"></i><a class="nav_link_a" href="./?route=dashboard&page=kabinet">Kabinet</a></li>
                 <li class="nav_link <?= $_GET['page'] == 'bemor' ? 'active' : ''?>"><i id="nav_icon" class="fas fa-user-injured"></i><a class="nav_link_a" href="./?route=dashboard&page=bemor-royxat">Bemorlar ro'yxati</a></li>
                 <li class="nav_link"><i id="nav_icon" class="fas fa-user-md"></i><a class="nav_link_a" href="../?route=add-patient">Bemor qo'shish</a></li>
-            <?if($isOwner && $getOwner):?>
+            <?if($isOwner):?>
                 <li class="nav_link"><a class="nav_link_a" href="../?route=add-admin">Admin tayinlash</a></li>
                 <li class="nav_link"><a class="nav_link_a" href="./?route=dashboard&owner=1&page=bemor-royxat&admin-royxat=1">Adminlar Ro'yxati</a></li>
             <?endif;?>
                 <li class="nav_link"><i id="nav_icon" class="far fa-question-circle"></i><a class="nav_link_a" href="#">Yordam</a></li>
             </ul>
-            <a href="<?= $isOwner && $getOwner ? "./?route=dashboard&page=admin-profile&owner=1" : "./?route=dashboard&page=admin-profile"?>" class="profile">
-                <h4 class="profile_name"><?= $isOwner && $getOwner ? "SuperAdmin:" : "Admin:"?></h4>
+            <div data-href="<?= $isOwner ? "./?route=dashboard&page=admin-profile&owner=1" : "./?route=dashboard&page=admin-profile"?>" class="profile">
+                <h4 class="profile_name"><?= $isOwner ? "SuperAdmin:" : "Admin:"?></h4>
                 <div class="profile_content">
                     <div class="profile_content_item">
-                        <img src="<?= $isOwner && $getOwner ? $_SESSION['owner-photo'] : $_SESSION['photo']?>" alt="" class="profile_img">
-                        <h5 class="profile_name"><?= $isOwner && $getOwner ? $_SESSION['owner-login'] : $_SESSION['login']?></h5>
+                        <img src="<?= $isOwner ? $_SESSION['owner-photo'] : $_SESSION['photo']?>" alt="" class="profile_img">
+                        <h5 class="profile_name"><?= $isOwner ? $_SESSION['owner-login'] : $_SESSION['login']?></h5>
                     </div>
-                    <span><a class="sign_out" href="<?= $isOwner && $getOwner ? "../components/login-owner.php" : "../components/login-admin.php"?>"><i class="fas fa-sign-out-alt"></i></a></span>
+                    <span><a class="sign_out" href="<?= $isOwner ? "../components/login-owner.php" : "../components/login-admin.php"?>"><i class="fas fa-sign-out-alt"></i></a></span>
                 </div>
-            </a>
+            </div>
         </nav>
         <main class="main">
             <?

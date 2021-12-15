@@ -1,9 +1,10 @@
 <?
 include_once('./components/db.php');
-if($_SESSION['login'] && $_SESSION['owner-login']){
-    header('Location: ./?route=dashboard&page=kabinetowner=1');
-}
-?>
+if($_SESSION['owner-login']){
+    header('Location: ./?route=dashboard&page=kabinet&owner=1');
+} else if ($_SESSION['login']) {
+    header('Location: ./?route=dashboard&page=kabinet');
+}?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
