@@ -33,15 +33,15 @@
                   <div class="header-info">
                      <div class="info-inner">
                         <span class="icontop"><i class="fas fa-phone-alt"></i></span>
-                        <span class="iconcont"><a href="tel:800 123 456">800 123 456</a></span>	
+                        <span class="iconcont"><a href="tel:+998 90 388 8333">+998 90 388 8333</a></span>	
                      </div>
                      <div class="info-inner">
                         <span class="icontop"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                        <span class="iconcont"><a data-scroll href="mailto:info@yoursite.com">info@Lifecare.com</a></span>	
+                        <span class="iconcont"><a data-scroll href="https://t.me/nexia992">Telegram</a></span>	
                      </div>
                      <div class="info-inner">
                         <span class="icontop"><i class="fas fa-clock" aria-hidden="true"></i></span>
-                        <span class="iconcont"><a data-scroll href="#">Daily: 7:00am - 8:00pm</a></span>	
+                        <span class="iconcont"><a data-scroll href="#">Kunlik: 7:00am - 8:00pm</a></span>	
                      </div>
                   </div>
                </div>
@@ -78,7 +78,7 @@
                   <div class="text-contant">
                      <h2>
                         <span class="center"><span class="icon"><img src="images/icon-logo.png" alt="#" /></span></span>
-                        <a href="" class="typewrite" data-period="2000" data-type='[ "Life Carega Xush kelibsiz", "Biz Sizning Sogliqingiz uchun gamxormiz", "Biz Eng Zorimiz" ]'>
+                        <a href="" class="typewrite" data-period="2000" data-type='[ "Saytimizga Xush kelibsiz", "Добро пожаловать на наш сайт", "Welcome to our site" ]'>
                         <span class="wrap"></span>
                         </a>
                      </h2>
@@ -340,58 +340,58 @@
                            <div class="col-md-4">
                               <div class="pricing-table">
                                  <div class="pricing-table-header">
-                                    <h2>Prime xonalar</h2>
+                                    <h2>Ishlab chiquvchilar</h2>
                                     <h3></h3>
                                  </div>
                                  <div class="pricing-table-features">
-                                    <p><i class="fa fa-envelope-o"></i> <strong>uzcointv@gmail.com</strong> </p>
+                                    <p><i class="fa fa-envelope-o"></i> <strong>Murodjon</strong> </p>
                                     <p><i class="fa fa-rocket"></i> <strong>24/7</strong></p>
-                                    <p><i class="fa fa-database"></i> <strong>$85</strong></p>
-                                    <p><i class="fa fa-link"></i> <strong>+998 90 622 50 22</strong></p>
-                                    <p><i class="fa fa-life-ring"></i> <strong>Manager</strong> Support</p>
+                                    <p><i class="fa fa-database"></i> <strong>100$ dan boshlab</strong></p>
+                                    <p><i class="fa fa-link"></i> <strong>+998 91 495 2976</strong></p>
+                                    <p><i class="fa fa-life-ring"></i> <strong>Manager</strong></p>
                                  </div>
                                  <div class="pricing-table-sign-up">
-                                    <a href="#contact" data-scroll="" class="btn btn-dark btn-radius btn-brd">Buyurtma berish</a>
+                                    <a href="https://t.me/Hacker77776" data-scroll="" class="btn btn-dark btn-radius btn-brd">Buyurtma berish</a>
                                  </div>
                               </div>
                            </div>
                            <div class="col-md-4">
                               <div class="pricing-table pricing-table-highlighted">
                                  <div class="pricing-table-header grd1">
-                                    <h2>Biznes xonalar</h2>
-                                    <h3>Bu yangi xonalardan biri</h3>
+                                    <h2>Ishlab chiquvchilar</h2>
+                                    <h3>Narxlar bilan tanishing</h3>
                                  </div>
                                  <div class="pricing-table-space"></div>
                                  <div class="pricing-table-text">
                                     <p></p>
                                  </div>
                                  <div class="pricing-table-features">
-                                    <p><i class="fa fa-envelope-o"></i> <strong>nexia992@gmail.coom</strong></p>
+                                    <p><i class="fa fa-envelope-o"></i> <strong>Suyunbek</strong></p>
                                     <p><i class="fa fa-rocket"></i> <strong>24/7</strong></p>
-                                    <p><i class="fa fa-database"></i> <strong>119$</strong></p>
-                                    <p><i class="fa fa-link"></i> <strong>+998 90 388 83 33</strong></p>
-                                    <p><i class="fa fa-life-ring"></i> <strong>Tuzuvchi</strong> Support</p>
+                                    <p><i class="fa fa-database"></i> <strong>100$ dan boshlab</strong></p>
+                                    <p><i class="fa fa-link"></i> <strong>+998 90 622 5022</strong></p>
+                                    <p><i class="fa fa-life-ring"></i> <strong>Tuzuvchi</strong> </p>
                                  </div>
                                  <div class="pricing-table-sign-up">
-                                    <a href="#contact" data-scroll="" class="btn btn-light btn-radius btn-brd grd1 effect-1">Buyurtma berish</a>
+                                    <a href="https://t.me/MrUzcoin" data-scroll="" class="btn btn-light btn-radius btn-brd grd1 effect-1">Buyurtma berish</a>
                                  </div>
                               </div>
                            </div>
                            <div class="col-md-4">
                               <div class="pricing-table">
                                  <div class="pricing-table-header">
-                                    <h2>Elite xonalar</h2>
+                                    <h2>Ishlab chiquvchilar</h2>
                                     <h3></h3>
                                  </div>
                                  <div class="pricing-table-features">
-                                    <p><i class="fa fa-envelope-o"></i> <strong>umanonym     @gmail.com</strong></p>
+                                    <p><i class="fa fa-envelope-o"></i> <strong>Ulanbek</strong></p>
                                     <p><i class="fa fa-rocket"></i> <strong>24/7</strong></p>
-                                    <p><i class="fa fa-database"></i> <strong>99$</strong> </p>
-                                    <p><i class="fa fa-link"></i> <strong>+996 554 545 527</strong></p>
-                                    <p><i class="fa fa-life-ring"></i> <strong>manager</strong> Support</p>
+                                    <p><i class="fa fa-database"></i> <strong>100$ dan boshlab</strong> </p>
+                                    <p><i class="fa fa-link"></i> <strong>+998 90 773 7008</strong></p>
+                                    <p><i class="fa fa-life-ring"></i> <strong>Manager</strong></p>
                                  </div>
                                  <div class="pricing-table-sign-up">
-                                    <a href="#contact" data-scroll="" class="btn btn-dark btn-radius btn-brd">Buyurtma berish</a>
+                                    <a href="https://t.me/PRO_WEB_CODER" data-scroll="" class="btn btn-dark btn-radius btn-brd">Buyurtma berish</a>
                                  </div>
                               </div>
                            </div>
