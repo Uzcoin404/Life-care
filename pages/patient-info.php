@@ -17,6 +17,8 @@ $isOwner = $_SESSION['owner-login'] && $_GET['owner'];?>
 </head>
 <body>
     <section class="patient-info">
+        <button type="button" class="pdf_button" onclick="getPDF()">Pdf shaklida Yuklab olish</button>
+        <a href="http://life-care/?route=dashboard&page=bemor-royxat" class="back_btn">Orqaga qaytish</a>
         <div class="cabin">
             <div class="cabin-1">
                 <p class="cabin-name"><?= $isOwner ? $admin['login'] : $patient['name']?></p>
@@ -26,6 +28,7 @@ $isOwner = $_SESSION['owner-login'] && $_GET['owner'];?>
         <div class="container">
         <h1 class="info-2-title">"<?= $isOwner ? $admin['login'] : $patient['name']?>" haqida qisqacha</h1>
         <?if(!$isOwner):?>
+        <div class="pdf_maker">
             <div class="info">
                 <div class="info-1">
                     <p>Bemor ismi: <span><?= $patient['name']?></span></p>
@@ -42,6 +45,7 @@ $isOwner = $_SESSION['owner-login'] && $_GET['owner'];?>
                 </div>
             </div>
             <div clas="info-3"><img class="info-3-img" src="<?= $patient['photo']?>" alt="Rengen"></div>
+        </div>
         <?else:?>
             <div class="info">
                 <div class="info-1">
@@ -60,6 +64,15 @@ $isOwner = $_SESSION['owner-login'] && $_GET['owner'];?>
         <li class="li-4"></li>
         <li class="li-5"></li>
     </section>
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <script>
+        function getPDF(){
+            const element = document.querySelector('.pdf_maker');
+            html2pdf()
+            .from(element)
+            .save("<?= $patient['name']. "-" ,$patient['surname']?>");
+        }
+    </script>
 </body>
 </html>
 <?else: header('Location: ./?route=main&noLogin=1');

@@ -14,7 +14,7 @@
                         <h2 class="admin_user-txt"><?= $isOwner ? $_SESSION['owner-phone'] : $_SESSION['phone']?></h2>
                     </div>
                     <div class="admin_password">
-                        <h2 class="admin_name"> <?= $isOwner ? "SuperAdmin:" : "Admin:"?> Paroli:  </h2>
+                        <h2 class="admin_name"> <?= $isOwner ? "SuperAdmin:" : "Admin:"?> Paroli: </h2>
                         <h2 class="admin_pass-txt">********</h2>
                     </div>
                 </div>
