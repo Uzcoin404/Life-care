@@ -2,7 +2,7 @@
                     $isLatest = $_GET['latest'];
                     $latestPatients = getPatients();
                     $sizePatients = sizeof($latestPatients);
-                    $perPage = 10;
+                    $perPage = 12;
                     $listIndex = $_GET['list'];
                     $pages = ceil($sizePatients / $perPage);
                     $listIndex ? $list = $listIndex : $list = 1;

@@ -21,7 +21,7 @@
     } else {
         $imgPath = "../images/rengen/no-photo.jpg";
     }
-    foreach ($patients as $name => $value) {
+    foreach ($patients as $pname => $value) {
         if ($passport == $value['passport']) {
             $checkLogin = true;
             break;

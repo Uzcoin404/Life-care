@@ -41,7 +41,7 @@
                      </div>
                      <div class="info-inner">
                         <span class="icontop"><i class="fas fa-clock" aria-hidden="true"></i></span>
-                        <span class="iconcont"><a data-scroll href="#">Kunlik: 7:00am - 8:00pm</a></span>	
+                        <span class="iconcont"><a data-scroll href="#">09:00 dan 22:00 gacha </a></span>	
                      </div>
                   </div>
                </div>
@@ -71,7 +71,7 @@
             </div>
          </div>
       </header>
-      <div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4" style="background-image:url('images/slider-bg.png');">
+      <div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4" style="background-image:url('images/slider-bg.png'); filter:brightness(75%)">
          <div class="container">
             <div class="row">
                <div class="col-md-12 col-sm-12">
@@ -419,7 +419,7 @@
                <div class="col-md-6 col-sm-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
                   <div class="testimonial clearfix">
                      <div class="desc">
-                        <h3><i class="fa fa-quote-left"></i> Ajoyib klinika! Ajoyib Support!</h3>
+                        <h3><i class="fa fa-quote-left"></i> Ajoyib Sayt Qoyilmaqom!</h3>
                         <p class="lead"Ular mening loyihamni yuqori malakali, tajribali va professional jamoa bilan raqobat bilan o'z vaqtida olishdi>.</p>
                      </div>
                      <div class="testi-meta">
@@ -500,43 +500,18 @@
       <footer id="footer" class="footer-area wow fadeIn">
          <div class="container">
             <div class="row">
-               <div class="col-md-4">
+               <div class="col-md-6">
                   <div class="logo padding">
                      <a href=""><img src="images/logo.png" alt=""></a>
                      <p>lifeCare biz sizning sog'lig'ingiz haqida qayg'uramiz</p>
                   </div>
                </div>
-               <div class="col-md-4">
+               <div class="col-md-6">
                   <div class="footer-info padding">
                      <h3>Biz bilan bog'lanish</h3>
-                     <p><i class="fa fa-map-marker" aria-hidden="true"></i> Uzbekistan>Andijan>Buloqboshi rohat ko'cha 222-uy</p>
-                     <p><i class="fa fa-paper-plane" aria-hidden="true"></i>LifeCare@gmail.com</p>
-                     <p><i class="fa fa-phone" aria-hidden="true"></i>+998 90 756 71 07</p>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div class="subcriber-info">
-                     <h3>Izoh Qoldiring</h3>
-                     <p>Mutaxassislarimizdan sog'lom yangiliklar, maslahatlar va muammolaringizga yechim oling..</p>
-                     <div class="subcriber-box">
-                        <form id="mc-form" class="mc-form">
-                           <div class="newsletter-form">
-                              <input type="email" autocomplete="off" id="mc-email" placeholder="Email address" class="form-control" name="EMAIL">
-                              <button class="mc-submit" type="submit"><i class="fa fa-paper-plane"></i></button> 
-                              <div class="clearfix"></div>
-                              <!-- mailchimp-alerts Start -->
-                              <div class="mailchimp-alerts">
-                                 <div class="mailchimp-submitting"></div>
-                                 <!-- mailchimp-submitting end -->
-                                 <div class="mailchimp-success"></div>
-                                 <!-- mailchimp-success end -->
-                                 <div class="mailchimp-error"></div>
-                                 <!-- mailchimp-error end -->
-                              </div>
-                              <!-- mailchimp-alerts end -->
-                           </div>
-                        </form>
-                     </div>
+                     <p><i class="fa fa-map-marker" aria-hidden="true"></i> Uzbekistan>Andijan>Buloqboshi Tumani</p>
+                     <p><i class="fa fa-paper-plane" aria-hidden="true"></i>Telegram: @nexia992</p>
+                     <p><i class="fa fa-phone" aria-hidden="true"></i>+998 90 388 8333</p>
                   </div>
                </div>
             </div>
