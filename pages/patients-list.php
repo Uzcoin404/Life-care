@@ -2,7 +2,7 @@
                     $isLatest = $_GET['latest'];
                     $latestPatients = getPatients();
                     $sizePatients = sizeof($latestPatients);
-                    $perPage = 10;
+                    $perPage = 12;
                     $listIndex = $_GET['list'];
                     $pages = ceil($sizePatients / $perPage);
                     $listIndex ? $list = $listIndex : $list = 1;
@@ -62,44 +62,44 @@
                             <?if($isOwner && $getOwner):
                                 for ($i=0; $i < count($admins); $i++):?>
                                 <tr class="patient_list">
-                                        <th scope="row"><?= $i+1?></th>
-                                        <td><a href="../?route=patient-info&owner=true&id=<?= $admins[$i]['id']?>"><?= $admins[$i]['login']?></a></td>
-                                        <td><a href="../?route=patient-info&owner=true&id=<?= $admins[$i]['id']?>">********</a></td>
-                                        <td><a href="../?route=patient-info&owner=true&id=<?= $admins[$i]['id']?>"><?= $admins[$i]['phone']?></a></td>
-                                        <td><a href="../?route=patient-info&owner=true&id=<?= $admins[$i]['id']?>"><?= $admins[$i]['photo']?></a></td>
-                                        <td class="table_btn edit_btn"><a href="../?route=add-admin&id=<?= $admins[$i]['id']?>"><i class="fas fa-edit"></i></a></td>
-                                        <td class="table_btn delete_btn"><a href="../?route=dashboard&owner=1&page=bemor-royxat&del=<?= $admins[$i]['id']?>"><i class="fas fa-trash"></i></a></td>
-                                    </tr>
-                                </tbody>
-                                <?endfor;
-                            else:
+                                    <th scope="row"><?= $admins[$i]['id']?></th>
+                                    <td><a href="../?route=patient-info&owner=true&id=<?= $admins[$i]['id']?>"><?= $admins[$i]['login']?></a></td>
+                                    <td><a href="../?route=patient-info&owner=true&id=<?= $admins[$i]['id']?>">********</a></td>
+                                    <td><a href="../?route=patient-info&owner=true&id=<?= $admins[$i]['id']?>"><?= $admins[$i]['phone']?></a></td>
+                                    <td><a href="../?route=patient-info&owner=true&id=<?= $admins[$i]['id']?>"><?= $admins[$i]['photo']?></a></td>
+                                    <td class="table_btn edit_btn"><a href="../?route=add-admin&id=<?= $admins[$i]['id']?>"><i class="fas fa-edit"></i></a></td>
+                                    <td class="table_btn delete_btn"><a href="../?route=dashboard&owner=1&page=bemor-royxat&del=<?= $admins[$i]['id']?>"><i class="fas fa-trash"></i></a></td>
+                                </tr>
+                                <?endfor;?>
+                            </tbody>
+                            <?else:
                                 if(!$isLatest):
                                     for ($i=0; $i < count($patients); $i++):?>
-                                        <tr class="patient_list">
-                                            <th scope="row"><?= $i+1?></th>
-                                            <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['name']?></a></td>
-                                            <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['surname']?></a></td>
-                                            <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['sicktype']?></a></td>
-                                            <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['age']?></a></td>
-                                            <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['passport']?></a></td>
-                                            <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['number']?></a></td>
-                                            <td class="table_btn edit_btn"><a href="../?route=add-patient&id=<?= $patients[$i]['id']?>"><i class="fas fa-edit"></i></a></td>
-                                            <td class="table_btn delete_btn"><a href="../?route=dashboard&page=bemor-royxat&admin-royxat=1&del=<?= $patients[$i]['id']?>"><i class="fas fa-trash"></i></a></td>
-                                        </tr>
+                                    <tr class="patient_list">
+                                        <th scope="row"><?= $patients[$i]['id']?></th>
+                                        <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['name']?></a></td>
+                                        <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['surname']?></a></td>
+                                        <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['sicktype']?></a></td>
+                                        <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['age']?></a></td>
+                                        <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['passport']?></a></td>
+                                        <td><a href="../?route=patient-info&id=<?= $patients[$i]['id']?>"><?= $patients[$i]['number']?></a></td>
+                                        <td class="table_btn edit_btn"><a href="../?route=add-patient&id=<?= $patients[$i]['id']?>"><i class="fas fa-edit"></i></a></td>
+                                        <td class="table_btn delete_btn"><a href="../?route=dashboard&page=bemor-royxat&admin-royxat=1&del=<?= $patients[$i]['id']?>"><i class="fas fa-trash"></i></a></td>
+                                    </tr>
                                     <?endfor;
                                 else:
                                     for ($i=$sizePatients-1; $i >= $sizePatients-15; $i--):?>
-                                        <tr class="patient_list">
-                                            <th scope="row"><?= $i?></th>
-                                            <td><a href="../?route=patient-info&id=<?= $latestPatients[$i]['id']?>"><?= $latestPatients[$i]['name']?></a></td>
-                                            <td><a href="../?route=patient-info&id=<?= $latestPatients[$i]['id']?>"><?= $latestPatients[$i]['surname']?></a></td>
-                                            <td><a href="../?route=patient-info&id=<?= $latestPatients[$i]['id']?>"><?= $latestPatients[$i]['sicktype']?></a></td>
-                                            <td><a href="../?route=patient-info&id=<?= $latestPatients[$i]['id']?>"><?= $latestPatients[$i]['age']?></a></td>
-                                            <td><a href="../?route=patient-info&id=<?= $latestPatients[$i]['id']?>"><?= $latestPatients[$i]['passport']?></a></td>
-                                            <td><a href="../?route=patient-info&id=<?= $latestPatients[$i]['id']?>"><?= $latestPatients[$i]['number']?></a></td>
-                                            <td class="table_btn edit_btn"><a href="../?route=add-patient&id=<?= $latestPatients[$i]['id']?>"><i class="fas fa-edit"></i></a></td>
-                                            <td class="table_btn delete_btn"><a href="../?route=dashboard&page=bemor-royxat&admin-royxat=1&del=<?= $latestPatients[$i]['id']?>"><i class="fas fa-trash"></i></a></td>
-                                        </tr>
+                                    <tr class="patient_list">
+                                        <th scope="row"><?= $i?></th>
+                                        <td><a href="../?route=patient-info&id=<?= $latestPatients[$i]['id']?>"><?= $latestPatients[$i]['name']?></a></td>
+                                        <td><a href="../?route=patient-info&id=<?= $latestPatients[$i]['id']?>"><?= $latestPatients[$i]['surname']?></a></td>
+                                        <td><a href="../?route=patient-info&id=<?= $latestPatients[$i]['id']?>"><?= $latestPatients[$i]['sicktype']?></a></td>
+                                        <td><a href="../?route=patient-info&id=<?= $latestPatients[$i]['id']?>"><?= $latestPatients[$i]['age']?></a></td>
+                                        <td><a href="../?route=patient-info&id=<?= $latestPatients[$i]['id']?>"><?= $latestPatients[$i]['passport']?></a></td>
+                                        <td><a href="../?route=patient-info&id=<?= $latestPatients[$i]['id']?>"><?= $latestPatients[$i]['number']?></a></td>
+                                        <td class="table_btn edit_btn"><a href="../?route=add-patient&id=<?= $latestPatients[$i]['id']?>"><i class="fas fa-edit"></i></a></td>
+                                        <td class="table_btn delete_btn"><a href="../?route=dashboard&page=bemor-royxat&admin-royxat=1&del=<?= $latestPatients[$i]['id']?>"><i class="fas fa-trash"></i></a></td>
+                                    </tr>
                                     <?endfor;
                                 endif;
                             endif;?>

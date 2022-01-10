@@ -157,7 +157,7 @@ function deleteAdmin($id){
 }
 function patientEdit($id, $name, $surname, $patronymic, $sicktype, $age, $passport, $photo, $arrivaltime, $gonetime, $number){
     $pdo = pdo();
-    $query = "UPDATE patients SET name='$name',surname='$surname',patronymic='$patronymic',sicktype='$sicktype',age='$age',passport='$passport',photo='$photo',arrivaltime='$arrivaltime',gonetime='$gonetime',number='$number' WHERE id = (?)";
+    $query = "UPDATE patients SET name='$name',surname='$surname',patronymic='$patronymic',sicktype='$sicktype',age=$age,passport='$passport',photo='$photo',arrivaltime='$arrivaltime',gonetime='$gonetime',number='$number' WHERE id = (?)";
     $driver = $pdo->prepare($query);
     $result = $driver->execute([$id]);
     if ($driver->errorInfo()[0] != '00000') {

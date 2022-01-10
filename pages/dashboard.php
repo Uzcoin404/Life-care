@@ -34,7 +34,7 @@ $isAdminList = $_GET['admin-royxat'];
                 <li class="nav_link"><a class="nav_link_a" href="../?route=add-admin">Admin tayinlash</a></li>
                 <li class="nav_link <?= $_GET['page'] == 'bemor-royxat' && $_GET['admin-royxat']  ? 'active' : ''?>"><a class="nav_link_a" href="./?route=dashboard&owner=1&page=bemor-royxat&admin-royxat=1">Adminlar Ro'yxati</a></li>
             <?endif;?>
-                <li class="nav_link"><i id="nav_icon" class="far fa-question-circle"></i><a class="nav_link_a" href="#">Yordam</a></li>
+                <!-- <li class="nav_link"><i id="nav_icon" class="far fa-question-circle"></i><a class="nav_link_a" href="#">Yordam</a></li> -->
                 <li class="nav_link"><i id="nav_icon" class="fas fa-home"></i><a class="nav_link_a" href="/">Bosh Sahifa</a></li>
             </ul>
             <div data-href="<?= $isOwner ? "./?route=dashboard&page=admin-profile&owner=1" : "./?route=dashboard&page=admin-profile"?>" class="profile">
