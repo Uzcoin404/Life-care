@@ -53,6 +53,9 @@ $isOwner = $_SESSION['owner-login'] && $_GET['owner'];?>
             </div>
             <div clas="info-3"><img class="info-3-img" src="<?= $admin['photo']?>" alt=""></div>
         <?endif;?>
+
+        <div id="qrcode"></div>
+
         </div>
         <li class="li-1"></li>
         <li class="li-2"></li>
@@ -60,6 +63,18 @@ $isOwner = $_SESSION['owner-login'] && $_GET['owner'];?>
         <li class="li-4"></li>
         <li class="li-5"></li>
     </section>
+
+    <script src="../js/qrcode.min.js"></script>
+    <script>
+        var QR_CODE = new QRCode("qrcode", {
+            width: 220,
+            height: 220,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.L,
+        });
+        QR_CODE.makeCode(window.location.href);
+    </script>
 </body>
 </html>
 <?else: header('Location: ./?route=main&noLogin=1');

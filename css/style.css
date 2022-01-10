@@ -349,7 +349,7 @@ a img.aligncenter {
     position: relative;
     min-height: 45px;
 }
-.form_input{
+.form_input, .form_select{
     display: inline-block;
     position: absolute;
     top: 0;
@@ -365,6 +365,10 @@ a img.aligncenter {
     outline: none;
     z-index: 1;
 }
+.form_select {
+    cursor: pointer;
+}
+.form_select 
 .input_title{
     font-size: 16px;
     font-weight: 600;

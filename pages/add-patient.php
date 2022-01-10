@@ -50,10 +50,12 @@ $patient = getId($id);
                 <div class="input_content">
                     <h4 class="input_title">Kasal turi <span>*</span></h4>
                     <div class="patient_input">
-                        <input name="sicktype" value="<?= $id ? $patient['sicktype'] : '' ?>" type="text" class="form_input anim_input" required>
-                        <? if(!$id):?>
-                        <label for="sicktype" class="form_label">Yo'tal...</label>
-                        <?endif;?>
+                        <!-- <input name="sicktype" value="<?= $id ? $patient['sicktype'] : '' ?>" type="text" class="form_input anim_input" required> -->
+                        <select id="sicktype" name="sicktype" <?= $id ? $patient['sicktype'] : '' ?> class="form_select" required>
+                            <option value="volvo" >Volvo</option>
+                            <option value="opel" <?= $id && $patient['sicktype']=='opel' ? 'selected' : '' ?>>Opel</option>
+                            <option value="audi" >Audi</option>
+                        </select>
                     </div>
                 </div>
                 <div class="input_content">
