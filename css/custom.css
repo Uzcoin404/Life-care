@@ -62,7 +62,7 @@ p {
 .header-bottom {
     float: left;
     width: 100%;
-    background: #157fda;
+    background: linear-gradient(to right, #ff0022 0%, #ff00bf 100%);
 }
 header {
     float: left;
@@ -95,24 +95,24 @@ header {
 }
 .header-bottom nav.main-menu ul.nav.navbar-nav > li a:hover, .header-bottom nav.main-menu ul.nav.navbar-nav > li a:focus, .header-bottom nav.main-menu ul.nav.navbar-nav > li a.active {
     color: #fff;
-    background: #39b49b;
+    background: #990059;
     box-shadow: 5px 5px 0 0px #fff;
 }
 .header-top {
     float: left;
     width: 100%;
-}	
-.header-top .navbar-brand {
-    float: left;
-    height: auto;
-}
+}	 
 .right-header {
     float: right;
-	margin:11px 0;
+	margin: 15px 0;
 }
 .header-info {
     float: left;
     width: 100%;
+}
+.center{
+    width: 100px;
+    height: 100px;
 }
 .info-inner {
     float: left;
@@ -121,7 +121,7 @@ header {
 }
 .info-inner span.icontop {
     float: left;
-    background: #157fda;
+    background: #d1007a;
     width: 40px;
     height: 40px;
     text-align: center;

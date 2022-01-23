@@ -24,7 +24,7 @@ $isAdminList = $_GET['admin-royxat'];
         <div class="menu"><i class="fas fa-bars"></i></div>
         <nav class="nav">
             <div class="nav_logo">
-                <a href="#"><img src="../images/logo.png" alt="" class="logo_img"></a>
+                <a href="/" class="logo_content"><img src="../images/brand.png" alt="" class="logo_img"><small>Premium <span>Lab</span></small></a>
             </div>
             <ul class="nav_list">
                 <li class="nav_link <?= $_GET['page'] == 'kabinet' || !$_GET['page'] ? 'active' : ''?>"><i id="nav_icon" class="fas fa-stethoscope"></i><a class="nav_link_a" href="./?route=dashboard&page=kabinet">Kabinet</a></li>

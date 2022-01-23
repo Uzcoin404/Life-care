@@ -19,7 +19,7 @@ body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.80857;
 }
-*{
+*, *::after,*::before{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -721,7 +721,25 @@ a img.aligncenter {
 .header_style_01 .navbar-brand {
     padding: 2px 15px 0 15px;
 }
-
+.logo_img {
+    width: 80px !important;
+    height: 80px;
+  }
+  .logo_content{
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    padding: 0;
+    margin: 15px 0;
+  }
+  .logo_content small span{
+    color: #013195
+  }
+  .logo_content small{
+    color: #db2b1a;
+  }
 .header_style_01 .navbar-default .navbar-nav > li > a {
     border-radius: 0;
     color: #ffffff !important;

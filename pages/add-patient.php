@@ -11,7 +11,10 @@ $patient = getId($id);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $id ? "Bemor Ro'yxatini tahrirlash" : "Bemorlarni Ro'yxatga olish"?></title>
-    <link rel="stylesheet" href="../css/style.css?v=<?time()?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css" integrity="sha512-T584yQ/tdRR5QwOpfvDfVQUidzfgc2339Lc8uBDtcp/wYu80d7jwBgAxbyMh0a9YM9F8N3tdErpFI8iaGx6x5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/add-patient.css?=<?= time()?>">
+    <link rel="stylesheet" href="../css/style.css?v=<?= time()?>">
     <link rel="icon" href="../images/fevicon.ico.png">
 </head>
 <body>
@@ -49,12 +52,53 @@ $patient = getId($id);
                 </div>
                 <div class="input_content">
                     <h4 class="input_title">Kasal turi <span>*</span></h4>
-                    <div class="patient_input">
+                    <div class="multi_select_box">
                         <!-- <input name="sicktype" value="<?= $id ? $patient['sicktype'] : '' ?>" type="text" class="form_input anim_input" required> -->
-                        <select id="sicktype" name="sicktype" <?= $id ? $patient['sicktype'] : '' ?> class="form_select" required>
-                            <option value="volvo" >Volvo</option>
-                            <option value="opel" <?= $id && $patient['sicktype']=='opel' ? 'selected' : '' ?>>Opel</option>
-                            <option value="audi" >Audi</option>
+                        <select id="sicktype" name="sicktype[]" class="multi_select" multiple="multiple">
+                            <option value="Krntsenratsiya" >Krntsenratsiya Gemoglabin(HSR)</option>
+                            <option value="Revmatoidniy" >Revmatoidniy Faktor</option>
+                            <option value="S-Reaktivniy" >S-Reaktivniy Belok</option>
+                            <option value="Antistreptolizin-O" >Antistreptolizin-O</option>
+                            <option value="Xolestrol Obshiy" >Xolestrol Obshiy</option>
+                            <option value="Triglitseridiy" >Triglitseridiy</option>
+                            <option value="Jelezo" >Jelezo</option>
+                            <option value="Kaltsiy Obshiy">Kaltsiy Obshiy</option>
+                            <option value="Protrobinovoye Vremya">Protrobinovoye Vremya</option>
+                            <option value="Aktiv Chastichnoye Tromboplastich">Aktiv Chastichnoye Tromboplastich</option>
+                            <option value="MNO">MNO</option>
+                            <option value="PTI">PTI</option>
+                            <option value="Obshiy Belok">Obshiy Belok</option>
+                            <option value="Albumin">Albumin</option>
+                            <option value="Glyukoza">Glyukoza</option>
+                            <option value="Bilirubin">Bilirubin</option>
+                            <option value="Alaninaminotransferaza">Alaninaminotransferaza</option>
+                            <option value="Aspartataminotransferaza">Aspartataminotransferaza</option>
+                            <option value="Kreyatinkinaza">Kreyatinkinaza</option>
+                            <option value="Mochevina">Mochevina</option>
+                            <option value="Kreyatitin">Kreyatitin</option>
+                            <option value="Fosfataza">Fosfataza Shelochnaya</option>
+                            <option value="Timolovaya">Timolovaya Proba</option>
+                            <option value="Alfa-Amilaza">Alfa-Amilaza (Diastaza)</option>
+                            <option value="Ostatachniy">Ostatachniy Azot</option>
+                            <option value="HBs-Ag">HBs-Ag</option>
+                            <option value="HCV-Ab(Gepatit C)">HCV-Ab(Gepatit C)</option>
+                            <option value="HBs-Ag(Kolichestvenniye)">HBs-Ag(Kolichestvenniye)</option>
+                            <option value="Mikroalbumin">Mikroalbumin</option>
+                            <option value="Atseton">Atseton</option>
+                            <option value="XG V Moche">XG V Moche</option>
+                            <option value="Kaltsiy">Kaltsiy</option>
+                            <option value="Alfa-Amilaza V Moche">Alfa-Amilaza V Moche</option>
+                            <option value="Proba Reberga">Proba Reberga</option>
+                            <option value="Mazok">Mazok</option>
+                            <option value="Tsitologiya">Tsitologiya Mazka</option>
+                            <option value="Spermogramma">Spermogramma</option>
+                            <option value="Obshiy Analiz Mochi">Obshiy Analiz Mochi</option>
+                            <option value="Mocha ponechiporenko">Mocha ponechiporenko</option>
+                            <option value="Mocha na Jelchniye Pigmeti">Mocha na Jelchniye Pigmeti</option>
+                            <option value="Pitologiya Mochi">Pitologiya Mochi</option>
+                            <option value="Glyukoza">Glyukoza</option>
+                            <option value="HBsAg">HBsAg</option>
+                            <option value="HCV">HCV</option>
                         </select>
                     </div>
                 </div>
@@ -134,7 +178,18 @@ $patient = getId($id);
             <div class="patient_panel_footer">Creative Coders jamoasi mahsuloti</div>
         </div>
     </div>
-    <script src="../js/script.js?v=<?= time()?>"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/js/bootstrap.bundle.min.js" integrity="sha512-mULnawDVcCnsk9a4aG1QLZZ6rcce/jSzEGqUkeOLy0b6q0+T6syHrxlsAGH7ZVoqC93Pd0lBqd6WguPWih7VHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript">
+        
+       let a = $(".multi_select").select2({
+            multiple: true,
+            placeholder: 'Kasallikni tanlash uchun bosing',
+        });
+        console.log(a);
+    </script>
+        <script src="../js/script.js?v=<?= time()?>"></script>
 </body>
 </html>
 <? else: header('Location: ./?route=main&noLogin=1');

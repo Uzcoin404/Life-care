@@ -42,13 +42,27 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 20px 0 20px 15px;
-  background: linear-gradient(to right, #39b49a 0%, #1d86df 100%);
+  background: linear-gradient(-180deg, #420027 15%, #e00584 100%);
   color: #fff;
   z-index: 99;
   overflow-y: auto;
 }
 .logo_img {
-  width: 80%;
+  width: 80px;
+  height: 80px;
+}
+.logo_content{
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+}
+.logo_content small span{
+  color: #013195
+}
+.logo_content small{
+  color: #db2b1a;
 }
 .nav_list {
   display: flex;

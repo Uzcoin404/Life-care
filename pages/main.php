@@ -28,12 +28,12 @@
       <header>
          <div class="header-top wow fadeIn">
             <div class="container">
-               <a class="navbar-brand" href="#"><img src="images/logo.png" alt="image"></a>
+               <a class="navbar-brand logo_content" href="#"><img src="../images/brand.png" alt="" class="logo_img"><small>Premium <span>Lab</span></small></a>
                <div class="right-header">
                   <div class="header-info">
                      <div class="info-inner">
                         <span class="icontop"><i class="fas fa-phone-alt"></i></span>
-                        <span class="iconcont"><a href="tel:+998 90 388 8333">+998 90 388 8333</a></span>	
+                        <span class="iconcont"><a href="tel:+998903888333">+998 90 388 8333</a></span>	
                      </div>
                      <div class="info-inner">
                         <span class="icontop"><i class="fa fa-envelope" aria-hidden="true"></i></span>
@@ -77,7 +77,7 @@
                <div class="col-md-12 col-sm-12">
                   <div class="text-contant">
                      <h2>
-                        <span class="center"><span class="icon"><img src="images/icon-logo.png" alt="#" /></span></span>
+                        <span class="center"><img src="images/brand.png" alt="#" /></span>
                         <a href="" class="typewrite" data-period="2000" data-type='[ "Saytimizga Xush kelibsiz", "Добро пожаловать на наш сайт", "Welcome to our site" ]'>
                         <span class="wrap"></span>
                         </a>
@@ -94,7 +94,7 @@
          <div class="container">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                <div class="row">
-                  <div class="service-time one" style="background:#2895f1;">
+                  <div class="service-time one" style="background:#e00584;">
                      <span class="info-icon"><i class="fas fa-ambulance" aria-hidden="true"></i></span>
                      <h3>Yordam qutisi</h3>
                      <p>Har bir mashina birinchi yordam qutisi bilan taminlangan</p>
@@ -103,7 +103,7 @@
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                <div class="row">
-                  <div class="service-time middle" style="background:#0071d1;">
+                  <div class="service-time middle" style="background:#c90075;">
                      <span class="info-icon"><i class="fas fa-clock" aria-hidden="true"></i></span> 
                      <h3>Ish Vaqti</h3>
                      <div class="time-table-section">
@@ -118,7 +118,7 @@
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                <div class="row">
-                  <div class="service-time three" style="background:#0060b1;">
+                  <div class="service-time three" style="background:#af0066;">
                      <span class="info-icon"><i class="fas fa-hospital" aria-hidden="true"></i></span>
                      <h3>Klinika jadvali</h3>
                      <p> Bizning Klinikada rivojlangan texnikalar malakali tajriba ega shifokorlar  mavjud
@@ -273,7 +273,7 @@
                     <div class="widget clearfix">
                         <img src="images/doctor_01.jpg" alt="" class="img-responsive img-rounded">
                         <div class="widget-title">
-                            <h3>Soren Bo Bostian</h3>
+                            <h3>Bu yerda siz bo'lishiniz mumkin</h3>
                             <small>Klinika Boshchisi</small>
                         </div>
                         <!-- end title -->
@@ -292,7 +292,7 @@
                     <div class="widget clearfix">
                         <img src="images/doctor_02.jpg" alt="" class="img-responsive img-rounded">
                         <div class="widget-title">
-                            <h3>Bryan Saftler</h3>
+                            <h3>Bu yerda siz bo'lishiniz mumkin</h3>
                             <small>Ichki kasalliklar mutaxasisi</small>
                         </div>
                         <!-- end title -->
@@ -311,7 +311,7 @@
                     <div class="widget clearfix">
                         <img src="images/doctor_03.jpg" alt="" class="img-responsive img-rounded">
                         <div class="widget-title">
-                            <h3>Matthew Bayliss</h3>
+                            <h3>Bu yerda siz bo'lishiniz mumkin</h3>
                             <small>Ortopediya bo'yicha mutaxassis</small>
                         </div>
                         <!-- end title -->
@@ -344,14 +344,14 @@
                                     <h3></h3>
                                  </div>
                                  <div class="pricing-table-features">
-                                    <p><i class="fa fa-envelope-o"></i> <strong>Murodjon</strong> </p>
+                                    <p><i class="fa fa-envelope-o"></i> <strong>Suyunbek</strong> </p>
                                     <p><i class="fa fa-rocket"></i> <strong>24/7</strong></p>
-                                    <p><i class="fa fa-database"></i> <strong>100$ dan boshlab</strong></p>
-                                    <p><i class="fa fa-link"></i> <strong>+998 91 495 2976</strong></p>
+                                    <p><i class="fa fa-database"></i> <strong>Kelishilgan holda</strong></p>
+                                    <p><i class="fa fa-link"></i> <strong>+998 90 622 5022</strong></p>
                                     <p><i class="fa fa-life-ring"></i> <strong>Manager</strong></p>
                                  </div>
                                  <div class="pricing-table-sign-up">
-                                    <a href="https://t.me/Hacker77776" data-scroll="" class="btn btn-dark btn-radius btn-brd">Buyurtma berish</a>
+                                    <a href="https://t.me/MrUzcoin" data-scroll="" class="btn btn-dark btn-radius btn-brd">Buyurtma berish</a>
                                  </div>
                               </div>
                            </div>
@@ -366,14 +366,14 @@
                                     <p></p>
                                  </div>
                                  <div class="pricing-table-features">
-                                    <p><i class="fa fa-envelope-o"></i> <strong>Suyunbek</strong></p>
+                                    <p><i class="fa fa-envelope-o"></i> <strong>Murodjon </strong></p>
                                     <p><i class="fa fa-rocket"></i> <strong>24/7</strong></p>
-                                    <p><i class="fa fa-database"></i> <strong>100$ dan boshlab</strong></p>
-                                    <p><i class="fa fa-link"></i> <strong>+998 90 622 5022</strong></p>
-                                    <p><i class="fa fa-life-ring"></i> <strong>Tuzuvchi</strong> </p>
+                                    <p><i class="fa fa-database"></i> <strong>Kelishilgan holda</strong></p>
+                                    <p><i class="fa fa-link"></i> <strong>+998 90 388 83 33</strong></p>
+                                    <p><i class="fa fa-life-ring"></i> <strong>tuzuvchi "nCODE"</strong> </p>
                                  </div>
                                  <div class="pricing-table-sign-up">
-                                    <a href="https://t.me/MrUzcoin" data-scroll="" class="btn btn-light btn-radius btn-brd grd1 effect-1">Buyurtma berish</a>
+                                    <a href="https://t.me/nexia992" data-scroll="" class="btn btn-light btn-radius btn-brd grd1 effect-1">Buyurtma berish</a>
                                  </div>
                               </div>
                            </div>
@@ -386,12 +386,12 @@
                                  <div class="pricing-table-features">
                                     <p><i class="fa fa-envelope-o"></i> <strong>Ulanbek</strong></p>
                                     <p><i class="fa fa-rocket"></i> <strong>24/7</strong></p>
-                                    <p><i class="fa fa-database"></i> <strong>100$ dan boshlab</strong> </p>
+                                    <p><i class="fa fa-database"></i> <strong>Kelishilgan holda</strong> </p>
                                     <p><i class="fa fa-link"></i> <strong>+998 90 773 7008</strong></p>
                                     <p><i class="fa fa-life-ring"></i> <strong>Manager</strong></p>
                                  </div>
                                  <div class="pricing-table-sign-up">
-                                    <a href="https://t.me/PRO_WEB_CODER" data-scroll="" class="btn btn-dark btn-radius btn-brd">Buyurtma berish</a>
+                                    <a href="https://t.me/PRO_WEB_CODER" data-scroll="" class="btn btn-dark btn-radius btn-brd">Managerga bog'lanish</a>
                                  </div>
                               </div>
                            </div>
@@ -502,7 +502,7 @@
             <div class="row">
                <div class="col-md-6">
                   <div class="logo padding">
-                     <a href=""><img src="images/logo.png" alt=""></a>
+                     <a href=""><img src="images/brand.png" alt="" style="height: 125px; width:auto"></a>
                      <p>lifeCare biz sizning sog'lig'ingiz haqida qayg'uramiz</p>
                   </div>
                </div>

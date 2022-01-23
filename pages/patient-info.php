@@ -17,6 +17,9 @@ $isOwner = $_SESSION['owner-login'] && $_GET['owner'];?>
 </head>
 <body>
     <section class="patient-info">
+        <img src="../images/clinic_01.jpg" class="print_bg" alt="">
+        <button type="button" class="pdf_button" onclick="getPDF()">Pdf shaklida Yuklab olish</button>
+        <a href="http://life-care/?route=dashboard&page=bemor-royxat" class="back_btn">Orqaga qaytish</a>
         <div class="cabin">
             <div class="cabin-1">
                 <p class="cabin-name"><?= $isOwner ? $admin['login'] : $patient['name']?></p>
@@ -24,24 +27,27 @@ $isOwner = $_SESSION['owner-login'] && $_GET['owner'];?>
             </div>
         </div>
         <div class="container">
-        <h1 class="info-2-title">"<?= $isOwner ? $admin['login'] : $patient['name']?>" haqida qisqacha</h1>
-        <?if(!$isOwner):?>
+            <?if(!$isOwner):?>
+                <div class="pdf_maker">
+                    <div class="mainInfo">
+                <h1 class="info-2-title">Bemor "<?= $isOwner ? $admin['login'] : $patient['name']?>" haqida</h1>
             <div class="info">
                 <div class="info-1">
-                    <p>Bemor ismi: <span><?= $patient['name']?></span></p>
+                    <p class="bemorIsm">Bemor ismi: <span><?= $patient['name']?></span></p>
                     <p>Bemor Familiyasi: <span><?= $patient['surname']?></span></p>
                     <p>Bemor Otasining ismi: <span><?= $patient['patronymic']?></span></p>
                     <p>Bemor yoshi: <span><?= $patient['age']?></span></p>
                     <p>Bemor pasport seriyasi: <span><?= $patient['passport']?></span></p>
-                </div>
-                <div class="info-2">
                     <p>Shifoxonaga kelgan vaqti: <span><?= $patient['arrivaltime']?></span></p>
                     <p>Tuzalgan vaqti: <span><?= $patient['gonetime']?></span></p>
                     <p>Telefon raqami: +998 <span><?= $patient['number']?></span></p>
                     <p>Bemorning kasal turi: <span><?= $patient['sicktype']?></span></p>
                 </div>
+                <div id="qrcode"></div>
             </div>
             <div clas="info-3"><img class="info-3-img" src="<?= $patient['photo']?>" alt="Rengen"></div>
+            </div>
+        </div>
         <?else:?>
             <div class="info">
                 <div class="info-1">
@@ -54,8 +60,6 @@ $isOwner = $_SESSION['owner-login'] && $_GET['owner'];?>
             <div clas="info-3"><img class="info-3-img" src="<?= $admin['photo']?>" alt=""></div>
         <?endif;?>
 
-        <div id="qrcode"></div>
-
         </div>
         <li class="li-1"></li>
         <li class="li-2"></li>
@@ -63,17 +67,28 @@ $isOwner = $_SESSION['owner-login'] && $_GET['owner'];?>
         <li class="li-4"></li>
         <li class="li-5"></li>
     </section>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <script src="../js/qrcode.min.js"></script>
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
     <script>
         var QR_CODE = new QRCode("qrcode", {
-            width: 220,
-            height: 220,
+            width: 150,
+            height: 150,
             colorDark: "#000000",
             colorLight: "#ffffff",
             correctLevel: QRCode.CorrectLevel.L,
         });
         QR_CODE.makeCode(window.location.href);
+        function getPDF(){
+            // var headstr = "<html><head><title>Booking Details</title></head><body>";
+            // var footstr = "</body>";
+            // var newstr = document.querySelector('.pdf_maker').innerHTML;
+            // var oldstr = document.body.innerHTML;
+            // document.body.innerHTML = headstr+newstr+footstr;
+            window.print();
+            // document.body.innerHTML = oldstr;
+            // return false;
+        }
     </script>
 </body>
 </html>

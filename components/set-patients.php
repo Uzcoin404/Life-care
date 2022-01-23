@@ -8,6 +8,7 @@
     $surname = $_POST['surname'];
     $patronymic = $_POST['patronymic'];
     $sicktype = $_POST['sicktype'];
+    $s = implode('<br>', $sicktype);
     $age = $_POST['age'];
     $passport = $_POST['passport'];
     $photo = $_POST['photo'];
@@ -30,7 +31,7 @@
     if ($checkLogin) {
         echo "<h1>Nimadir xato qaytadan urinib ko'ring. Passport band bo'lishi mumkin</h1>";
     } else{
-        setPatients($name, $surname, $patronymic, $sicktype, $age, $passport, $imgPath, $arrivaltime, $gonetime, $number);
+        setPatients($name, $surname, $patronymic, $s, $age, $passport, $imgPath, $arrivaltime, $gonetime, $number);
         move_uploaded_file($_FILES['photo']['tmp_name'], $imgPath);
         header("location: ../?route=dashboard&page=bemor-royxat");
     }

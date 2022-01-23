@@ -4,7 +4,7 @@ session_start();
     $dbname = 'hospital-db';
     $dbuser = 'root';
     $pass = '';
-    $host = 'localhost';
+    $host = '127.0.0.1';
     return new PDO("mysql:host=$host; dbname=$dbname",$dbuser,$pass);
 }
 function adminLogin($login, $pass){
@@ -51,6 +51,8 @@ function setPatients($name, $surname, $patronymic, $sicktype, $age, $passport, $
     $query = "INSERT INTO patients (name, surname, patronymic, sicktype, age, passport, photo, arrivaltime, gonetime, number) VALUES (?,?,?,?,?,?,?,?,?,?)";
     $driver = $pdo->prepare($query);
     $result = $driver->execute([$name, $surname, $patronymic, $sicktype, $age, $passport, $photo, $arrivaltime, $gonetime, $number]);
+
+    
     if ($driver->errorInfo()[0] != '00000') {
         var_dump($driver->errorInfo());
     }
